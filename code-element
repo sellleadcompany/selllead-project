@@ -1,0 +1,3698 @@
+1 <html lang="th"><head>
+2 <meta charset="utf-8">
+3 <meta name="viewport" content="width=device-width, initial-scale=1">
+4 <meta name="csrf-token" content="ajImqXJm8kakJtN115P1Y5JrRqvlL8c5wqc7BQA9">
+5
+6 <title>Zelect Shop</title>
+7 <link rel="icon" type="image/png" sizes="32x32"
+href="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/zelect_logo-03_0.png?v1.0">
+8 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+crossorigin="anonymous">
+9 <link
+href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;
+1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+10 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+11 <link href="https://รอระบบ domain เสร็จ.com/css/main-layout.css?v1.0095" rel="stylesheet" type="text/css">
+12 <link href="https://รอระบบ domain เสร็จ.com/css/product-item.css?v1.0090" rel="stylesheet" type="text/css">
+13 <link href="https://รอระบบ domain เสร็จ.com/css/pre-loader.css?v1.0005" rel="stylesheet" type="text/css">
+14 <style>
+15 .pagination-box-product{
+16 right:0;width:auto;position: relative;float: right;
+17 }
+18 .text-name-head {
+19 color: white;
+20 display: inline;
+21 }
+22 .swal2-loader{
+23 border-color: var(--main-color) transparent var(--main-color) transparent !important;
+24 }
+25 .cursor-click{
+26 cursor: pointer;
+27 }
+28 .sub-show-all {display: grid;}
+29 .icon-mail {
+30 width: 30px;
+31 background-color: white;
+32 border-radius: 50%;
+33 align-items: center;
+34 justify-content: center;
+35 height: 30px;
+36 margin-right: 5px;
+37 }
+38 .img-suppot {width:30px;margin-right:5px;}
+39 .btn-logout-icon {display: none;}
+40 .header-toggle-mobile {display: none;}
+41 .txt-auth {color: #D5D2D4;font-size: 14px; font-weight: 200;}
+42 .slide-head-menu {transform: translateY(33px);transition: all 1.5s ease;}
+43 .head-use-name {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 8rem;}
+44
+45 .product-soldout-text::before{
+46 content: attr(data-message);
+47 color: white;
+48 position: absolute;
+49 display: flex;
+50 z-index: 1;
+51 justify-content: center;
+52 align-items: center;
+53 width: 100%;
+54 height: 100%;
+55 font-size: 1.5rem;
+56 }
+57
+58 .product-soldout-bg::before{
+59 content: "";
+60 background-color: #000;
+61 opacity: 0.6;
+62 position: absolute;
+63 color: white;
+64 width: 100%;
+65 height: 100%;
+66 display: flex;
+67 justify-content: center;
+68 align-items: center;
+69 border-radius: 10px;
+70 }
+71
+72 .menu-footer-mb,.btn-login-mb{
+73 display: none;
+74 }
+75
+76 .d-search-login{display: flex;}
+77
+78 .menu-auth-pc{
+79 display: flex;
+80 }
+81
+82 .con-nav{
+83 justify-content: space-between;
+84 }
+85 .btn-use {background-color: white;border-radius: 50%;aspect-ratio: 1;color: var(--main-color);}
+86 .btn-noti {font-size: 1.8rem;}
+87 @media (max-width: 767px){
+88 .menu-auth-pc{
+89 display: none;
+90 }
+91 .background-container{
+92 height: 7rem;
+93 }
+94 }
+95
+96 @media (max-width: 440px){
+97
+98 .btn-login-mb a{
+99 font-size: 1.7rem;
+100 margin-left: 10px;
+101 }
+102
+103 .menu-footer-mb , .btn-login-mb{
+104 display: block;
+105 }
+106
+107 .d-search-login{
+108 display: none;
+109 }
+110
+111 /*.nav-logo::before{
+112 content: "";
+113 background-color: #ed1e7a;
+114 height: 33px;
+115 width: 131px;
+116 position: absolute;
+117 margin-left: 25px;
+118 }*/
+119 .navbar-brand .img-logo {width: 100%}
+120 #slide-head-menu{
+121 padding-top: 10px;
+122 padding-bottom: 10px;
+123 }
+124
+125 .cut-con-search{
+126 width: 100%;
+127 }
+128
+129 .box-cart-badge{
+130 display: none;
+131 }
+132
+133 .box-cart-mb{
+134 color: var(--main-color);
+135 border-radius: 50%;
+136 font-size: 14px;
+137 width: 28px;
+138 height: 28px;
+139 top: 3px !important;
+140 padding: 5px;
+141 border: 2px solid var(--main-color);
+142 }
+143 }
+144
+145 .pagination li{
+146 cursor: pointer;
+147 }
+148 .box-lang{
+149 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+150 position: fixed;
+151 right: 0;
+152 top: 5%;
+153 z-index: 2000;
+154 }
+155
+156 .dropdown.show-lang-pc , .dropdown.show-lang-mobile{
+157 position: relative;
+158 display: inline-block;
+159 }
+160
+161 .dropdown-btn {
+162 font-size: 14px;
+163 background-color: #ffffff;
+164 border: none;
+165 cursor: pointer;
+166 border: 1px solid white;
+167 border-radius: 10px;
+168 width: auto;
+169 position: relative;
+170 padding-left: 10px;
+171 padding-right: 10px;
+172 }
+173
+174 .show-lang-pc .dropdown-show{
+175 font-size: 14px;
+176 background-color: #ffffff;
+177 cursor: pointer;
+178 border-bottom: 1px solid #ffffff;
+179 border-top: 1px solid #EFF0F6;
+180 border-right: 1px solid #EFF0F6;
+181 border-left: 1px solid #EFF0F6;
+182 width: auto;
+183 position: relative;
+184 padding-left: 10px;
+185 padding-right: 10px;
+186 border-top-left-radius: 10px;
+187 border-top-right-radius: 10px;
+188 }
+189 .dropdown-btn:hover{
+190 border: 1px solid #EFF0F6;
+191 }
+192 .show-lang-pc .dropdown-menu {
+193 display: block;
+194 overflow: hidden;
+195 --bs-dropdown-min-width: auto;
+196 opacity: 0;
+197 transform: translateY(-10px);
+198 transition: opacity 0.3s ease, transform 0.3s ease;
+199 pointer-events: none;
+200 padding: 10px 0px;
+201 --bs-dropdown-border-radius:none;
+202 --bs-dropdown-border-color:none;
+203 border:1px solid #EFF0F6;
+204 border-radius: 10px;
+205 top: 1px;
+206 right: 1px;
+207 z-index: 1001;
+208 }
+209
+210 .show-lang-pc .dropdown-menu.show {
+211 opacity: 1;
+212 transform: translateY(0);
+213 pointer-events: auto;
+214 }
+215
+216 .show-lang-pc .dropdown-item {
+217 padding: 10px 20px;
+218 text-decoration: none;
+219 color: #333;
+220 background-color: #ffffff;
+221 }
+222 .show-lang-pc .dropdown-item-head{
+223 display: flex;
+224 align-items: center ;
+225 padding: 0px 20px;
+226 padding-top: 5px;
+227 padding-bottom: 15px;
+228 cursor: pointer;
+229 border-bottom: 1px solid #EFF0F6;
+230 }
+231 .show-lang-pc .dropdown-item:hover {
+232 background-color: #f0f0f0;
+233 }
+234 .show-lang-pc .dropdown-item a{
+235 font-size: 16px;
+236 color: #514F6E;
+237 }
+238 /* .navbar-main.slide-head-menu{
+239 z-index: 999 ;
+240 } */
+241 .color-text{
+242 color: #514F6E;
+243 }
+244
+245 .show-lang-mobile .manual-lang-mobile a{
+246 font-size: 18px;
+247 }
+248
+249 .show-lang-mobile .dropdown-menu-mobile{
+250 border-radius: 5px;
+251 background-color: rgb(255, 255, 255, 30%);
+252 padding: 2px 5px;
+253 }
+254 .show-lang-mobile .dropdown-item-mobile{
+255 display: flex;
+256 align-items: center;
+257 padding: 5px 10px;
+258 cursor: pointer;
+259 }
+260 .show-lang-mobile .dropdown-menu-mobile a{
+261 color: white;
+262
+263 }
+264 .image-lang{
+265 height: 100%;
+266 }
+267
+268 .show-lang-pc{
+269 position: absolute;
+270 }
+271
+272
+273 </style>
+274 <style>
+275 .mvData {
+276 width: 50%;
+277 }
+278 .icon-bar-row {
+279 box-shadow: 0px 2px 6px 0px #0D0A2C14;
+280 overflow-x: auto;
+281 overflow-y: hidden;
+282 margin: 1rem auto;
+283 padding: 1rem;
+284 justify-content: space-between;
+285 background-color: white;
+286 border-radius: 15px;
+287 width: 120%;
+288 ซ่อนแถบเลือน scrollbar-width: none; /* scrollbar */
+289 }
+290 ซ่อนแถบเลือน
+.icon-bar-row::-webkit-scrollbar {height: 0px;}/* scrollbar */
+291 .icon-cate {
+292 flex: 0 0 auto;
+293 text-align: center;
+294 max-width: 100%;
+295 display: flex;
+296 flex-direction: column;
+297 align-items: center;
+298 text-align: center;
+299 }
+300 .icon-cate:hover {
+301 transform: translateY(-5px);
+302 transition: transform 0.2s;
+303 }
+304
+305 .icon-text{
+306 font-size: 12px;
+307 text-align: center;
+308 color: var(--font-color);
+309 margin: 0;
+310 }
+311
+312 .icon-cate img {
+313 width: 80px;
+314 margin: 0 auto;
+315 }
+316 .icon-img {
+317 max-width: 100%;
+318 width: 100%;
+319 }
+320
+321 .view-all {
+322 text-align: right;
+323 padding-top: 10px;
+324 padding-bottom: 10px;
+325 }
+326
+327 .view-all a {
+328 color: var(--main-color);
+329 font-size: 16px;
+330 }
+331
+332 .logo-img img {
+333 width: 8.125rem;
+334 line-height: 30px;
+335 height: 50px;
+336 }
+337 .logo-time {
+338 display: flex;
+339 }
+340
+341 .flash-sale-row {
+342 margin: 5px;
+343 }
+344
+345
+346 .countdown-logo {
+347 padding: 1px;
+348 margin: 2px;
+349 font-size: 14px;
+350 font-weight: bolder;
+351 color: #FFF;
+352 background: #FF1F20;
+353 border-radius: 10%;
+354 width: 22px;
+355 height: 22px;
+356 }
+357
+358 .countdown-flash {
+359 display: flex;
+360 justify-content: center;
+361 align-items: center;
+362 height: 40px;
+363 }
+364
+365 .flash-product-row {
+366 padding-left: 4px;
+367 padding-right: 4px;
+368 padding-bottom: 20px;
+369 align-items: center;
+370 justify-content: space-between;
+371 }
+372
+373 .flash-product-row .border-product {
+374 padding: 5px ;
+375 }
+376 .flash-logo {
+377 padding: 0;
+378 margin: 0;
+379 }
+380
+381 .product .best-logo-seller {
+382 width: 50px;
+383 position: absolute;
+384 left: 6px;
+385 top: 0;
+386 margin-top: -10px
+387 }
+388
+389 hr {
+390 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+391 margin: 0;
+392 opacity: 0.1;
+393 }
+394 .best-seller-row {
+395 margin: 5px;
+396 align-items: center;
+397 justify-content: space-between;
+398 }
+399 .best-seller {
+400 display: flex;
+401 justify-content: space-between;
+402 padding: 0;
+403 }
+404
+405 .best {
+406 color: black;
+407 padding-top: 5px;
+408 }
+409
+410 .best-seller-all {
+411 text-align: right;
+412 padding-bottom: 5px;
+413 padding-top: 5px;
+414 }
+415
+416 /*.best-product .border-product {
+417 border: solid 1px rgb(239, 239, 239);
+418 padding: 10px;
+419 height: 100%;
+420 border-radius: 15px;
+421 background-color: white;
+422 }*/
+423
+424 .shop-store-row {
+425 margin: 5px;
+426 }
+427
+428 .shop ,.affiliate-text{
+429 color: black;
+430 padding-bottom: 5px;
+431 padding-top: 5px;
+432 text-align: left;
+433 }
+434
+435 .shop-store-all {
+436 text-align: right;
+437 padding-bottom: 5px;
+438 padding-top: 5px;
+439 }
+440
+441 /* .shop-banner {
+442 padding: 10px;
+443 margin-bottom: 20px;
+444 } */
+445
+446 .shop-banner-image {
+447 width: 100%;
+448 text-decoration: none;
+449 }
+450
+451 .shop-banner img {
+452 max-width: 100%;
+453 width: 100%;
+454 }
+455
+456
+457 .cate {
+458 color: black;
+459 padding-bottom: 5px;
+460 padding-top: 5px;
+461 text-align: left;
+462 }
+463
+464 .hot-cate-all {
+465 text-align: right;
+466 padding-bottom: 5px;
+467 padding-top: 5px;
+468 }
+469
+470
+471 .cate-num {
+472 font-size: 10px;
+473 color:#959595;
+474 }
+475
+476 .cate-name {
+477 margin-bottom: 15px;
+478 color:#7e7d7d;
+479 display: -webkit-box;
+480 display: -moz-box;
+481 display: box;
+482 -webkit-box-orient: vertical;
+483 -moz-box-orient: vertical;
+484 box-orient: vertical;
+485 -webkit-line-clamp: 2;
+486 overflow: hidden;
+487 white-space: pre-wrap;
+488 text-overflow: ellipsis;
+489 word-break: break-word;
+490 }
+491
+492 .cate-row {
+493 text-align: center;
+494 padding-left: 10px;
+495 padding-right: 10px;
+496 margin-top: 1rem;
+497 margin-bottom: 1rem;
+498 }
+499
+500 .cate-row img {
+501 width: 65px;
+502 height: 65px;
+503 }
+504 .img-category {margin-top: 15px;}
+505 .cate-hit-box {height: 130px;border-radius: 15px;box-shadow: 0px 2px 6px 0px #0D0A2C14;display: grid;justify-content:
+center;align-items: center;}
+506 .aff_box {border-radius: 15px;box-shadow: 0px 2px 6px 0px #0D0A2C14;text-align: center;margin-top: 1rem;margin-bottom:
+1rem;padding: 10px 20px;}
+507 .aff_img {max-width: 100%;height: 150px;background-size: contain;background-repeat: no-repeat;background-position: center
+center;opacity: 1;transition: opacity .2s ease;}
+508 .aff_col {padding: 0 10px}
+509 .carousel-item img {
+510 max-width: 100%;
+511 width: 100%;
+512 }
+513
+514 .description {
+515 height: 3rem;
+516 display: -webkit-box;
+517 -webkit-box-orient: vertical;
+518 -webkit-line-clamp: 2;
+519 overflow: hidden;
+520 text-overflow: ellipsis;
+521 color: var(--font-color);
+522 }
+523
+524
+525 .vertical-line {
+526 เส้นแนวตัง 1 พิกเซลและสีดํา */
+border-left: 1px solid #515151; /*
+527 height: 100%;
+528 ระยะห่างด้านขวาและซ้ายของเส้นแนวตัง */
+margin: 0 20px; /*
+529 }
+530
+531 .carousel .carousel-indicators button {
+532 width: 10px;
+533 height: 10px;
+534 border-radius: 100%;
+535 }
+536
+537 .carousel-control-next-icon,
+538 .carousel-control-prev-icon {
+539 width: 3vw;
+540 height: 3vw;
+541 }
+542 .custom-tooltip {
+543 --bs-tooltip-bg: var(--main-color);
+544 }
+545 .icon-cate a{
+546 text-decoration: none ;
+547 }
+548
+549 .shop-banner .shop-name{
+550 font-size: 1.2rem;
+551 height: 2rem;
+552 -webkit-line-clamp: 1;
+553 }
+554
+555 .shop-banner .shop-detail{
+556 height: 2.2rem;
+557 display: -webkit-box;
+558 display: -moz-box;
+559 display: box;
+560 -webkit-box-orient: vertical;
+561 -moz-box-orient: vertical;
+562 box-orient: vertical;
+563 -webkit-line-clamp: 2;
+564 overflow: hidden;
+565 white-space: pre-wrap;
+566 text-overflow: ellipsis;
+567 color: #574F53;
+568 font-size: .75rem;
+569 }
+570
+571 .shop-banner .btn-shop-view ,.btn-affiliate{
+572 background-color: white;
+573 border: 1px solid var(--main-color);
+574 border-radius: 20px;
+575 color: var(--main-color);
+576 }
+577 .btn-affiliate {margin-bottom: 1rem;padding: 5px 25px;}
+578 .aff_name {
+579 text-wrap: nowrap;
+580 overflow: hidden;
+581 text-overflow: ellipsis;
+582 word-break: break-word;
+583 }
+584 .aff_detail {
+585 display: -webkit-box;
+586 display: -moz-box;
+587 display: box;
+588 -webkit-box-orient: vertical;
+589 -moz-box-orient: vertical;
+590 box-orient: vertical;
+591 -webkit-line-clamp: 2;
+592 overflow: hidden;
+593 white-space: pre-wrap;
+594 text-overflow: ellipsis;
+595 word-break: break-word;
+596 }
+597
+598 .shop-banner .btn-shop-view:hover ,.btn-affiliate:hover{
+599 background-color: var(--main-color);
+600 color: white;
+601 }
+602 .text_detail-aff {padding: 1.5rem;}
+603
+604 .shop-banner-row{
+605 margin-top: 0;
+606 }
+607
+608 @media (max-width: 430px){
+609
+610 .aff_box {padding: 10px 10px;}
+611 .aff_img {height: 90px;}
+612
+613 .icon-cate img{
+614 width: 50px;
+615 }
+616
+617 .icon-cate .icon-text{
+618 height: 2.2rem;
+619 display: -webkit-box;
+620 display: -moz-box;
+621 display: box;
+622 -webkit-box-orient: vertical;
+623 -moz-box-orient: vertical;
+624 box-orient: vertical;
+625 -webkit-line-clamp: 2;
+626 overflow: hidden;
+627 white-space: pre-wrap;
+628 text-overflow: ellipsis;
+629 color: #574F53;
+630 font-size: .75rem;
+631 }
+632 }
+633
+634 .favorites-hide-shop{
+635 color:var(--main-color);
+636 }
+637
+638 .favorites-show-shop{
+639 color:var(--main-color);
+640 }
+641
+642 </style><style>.swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4
+!important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px
+rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px
+rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em
+1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast
+.swal2-loading{justify-content:center}.swal2-popup.swal2-toast
+.swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast
+.swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0
+0;font-size:.8em}.swal2-popup.swal2-toast
+.swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast
+.swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast
+.swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast
+.swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast
+.swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0
+0}.swal2-popup.swal2-toast .swal2-icon
+.swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast
+.swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error
+[class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error
+[class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error
+[class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast
+.swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast
+.swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast
+.swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success
+[class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-po
+pup.swal2-toast .swal2-success
+[class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em
+2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success
+[class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em
+0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success
+.swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success
+[class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success
+[class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success
+[class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast
+.swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip
+.75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show
+.swal2-success-line-long{animation:swal2-toast-animate-success-line-long
+.75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show
+.5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s
+forwards}div:where(.swal2-container){display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:"top-st
+art top top-end" "center-start center center-end" "bottom-start bottom-center
+bottom-end";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content,
+auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color
+.1s;-webkit-overflow-scrolling:touch}div:where(.swal2-container).swal2-backdrop-show,div:where(.swal2-container).swal2-noanimatio
+n{background:rgba(0,0,0,.4)}div:where(.swal2-container).swal2-backdrop-hide{background:rgba(0,0,0,0)
+!important}div:where(.swal2-container).swal2-top-start,div:where(.swal2-container).swal2-center-start,div:where(.swal2-container).swa
+l2-bottom-start{grid-template-columns:minmax(0, 1fr) auto
+auto}div:where(.swal2-container).swal2-top,div:where(.swal2-container).swal2-center,div:where(.swal2-container).swal2-bottom{grid-t
+emplate-columns:auto minmax(0, 1fr)
+auto}div:where(.swal2-container).swal2-top-end,div:where(.swal2-container).swal2-center-end,div:where(.swal2-container).swal2-bott
+om-end{grid-template-columns:auto auto minmax(0,
+1fr)}div:where(.swal2-container).swal2-top-start>.swal2-popup{align-self:start}div:where(.swal2-container).swal2-top>.swal2-popup{gri
+d-column:2;align-self:start;justify-self:center}div:where(.swal2-container).swal2-top-end>.swal2-popup,div:where(.swal2-container).sw
+al2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}div:where(.swal2-container).swal2-center-start>.swal2-popup,
+div:where(.swal2-container).swal2-center-left>.swal2-popup{grid-row:2;align-self:center}div:where(.swal2-container).swal2-center>.sw
+al2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}div:where(.swal2-container).swal2-center-end>.swal2-popup,di
+v:where(.swal2-container).swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}div:where(.swal2
+-container).swal2-bottom-start>.swal2-popup,div:where(.swal2-container).swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;al
+ign-self:end}div:where(.swal2-container).swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}div:wh
+ere(.swal2-container).swal2-bottom-end>.swal2-popup,div:where(.swal2-container).swal2-bottom-right>.swal2-popup{grid-column:3;g
+rid-row:3;align-self:end;justify-self:end}div:where(.swal2-container).swal2-grow-row>.swal2-popup,div:where(.swal2-container).swal2-
+grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}div:where(.swal2-container).swal2-grow-column>.swal2-popup,div:where(.
+swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}div:where(.swal2-container).swal2-no-transition{t
+ransition:none !important}div:where(.swal2-container)
+div:where(.swal2-popup){display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0,
+100%);width:32em;max-width:100%;padding:0 0
+1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}div:where(.swal2-container)
+div:where(.swal2-popup):focus{outline:none}div:where(.swal2-container)
+div:where(.swal2-popup).swal2-loading{overflow-y:hidden}div:where(.swal2-container)
+h2:where(.swal2-title){position:relative;max-width:100%;margin:0;padding:.8em 1em
+0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}div:where(.swal2-contai
+ner)
+div:where(.swal2-actions){display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:a
+uto;margin:1.25em auto 0;padding:0}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading)
+.swal2-styled[disabled]{opacity:.4}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading)
+.swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}div:where(.swal2-container)
+div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0,
+0.2))}div:where(.swal2-container)
+div:where(.swal2-loader){display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0
+1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite
+normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4
+rgba(0,0,0,0)}div:where(.swal2-container) button:where(.swal2-styled){margin:.3125em;padding:.625em
+1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}div:where(.swal2-container)
+button:where(.swal2-styled):not([disabled]){cursor:pointer}div:where(.swal2-container)
+button:where(.swal2-styled).swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-
+size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus{box-shadow:0 0 0 3px
+rgba(112,102,224,.5)}div:where(.swal2-container)
+button:where(.swal2-styled).swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-siz
+e:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-deny:focus{box-shadow:0 0 0 3px
+rgba(220,55,65,.5)}div:where(.swal2-container)
+button:where(.swal2-styled).swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-si
+ze:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel:focus{box-shadow:0 0 0 3px
+rgba(110,120,129,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-default-outline:focus{box-shadow:0 0 0 3px
+rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-styled):focus{outline:none}div:where(.swal2-container)
+button:where(.swal2-styled)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-footer){margin:1em 0
+0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em;text-align:center}div:where(.swal2-container)
+.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto
+!important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}div:where(.swal2-container)
+div:where(.swal2-timer-progress-bar){width:100%;height:.25em;background:rgba(0,0,0,.2)}div:where(.swal2-container)
+img:where(.swal2-image){max-width:100%;margin:2em auto 1em}div:where(.swal2-container)
+button:where(.swal2-close){z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;
+margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow
+.1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:monospace;font-size:2.5em;cursor:pointer;justify-s
+elf:end}div:where(.swal2-container)
+button:where(.swal2-close):hover{transform:none;background:rgba(0,0,0,0);color:#f27474}div:where(.swal2-container)
+button:where(.swal2-close):focus{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container)
+button:where(.swal2-close)::-moz-focus-inner{border:0}div:where(.swal2-container)
+.swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em
+.3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-
+word;word-break:break-word}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container)
+input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea),div:where(.swal2-container)
+select:where(.swal2-select),div:where(.swal2-container) div:where(.swal2-radio),div:where(.swal2-container)
+label:where(.swal2-checkbox){margin:1em 2em 3px}div:where(.swal2-container)
+input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container)
+textarea:where(.swal2-textarea){box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid
+#d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px
+rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container)
+input:where(.swal2-input).swal2-inputerror,div:where(.swal2-container)
+input:where(.swal2-file).swal2-inputerror,div:where(.swal2-container)
+textarea:where(.swal2-textarea).swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474
+!important}div:where(.swal2-container) input:where(.swal2-input):focus,div:where(.swal2-container)
+input:where(.swal2-file):focus,div:where(.swal2-container) textarea:where(.swal2-textarea):focus{border:1px solid
+.8s}div:where(.swal2-icon).swal2-question{border-color:#c9dae1;color:#87adbd}div:where(.swal2-icon).swal2-question.swal2-icon-sh
+ow{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-question.swal2-icon-show
+.swal2-icon-content{animation:swal2-animate-question-mark
+.8s}div:where(.swal2-icon).swal2-success{border-color:#a5dc86;color:#a5dc86}div:where(.swal2-icon).swal2-success
+[class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}div:whe
+re(.swal2-icon).swal2-success
+[class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em
+3.75em;border-radius:7.5em 0 0 7.5em}div:where(.swal2-icon).swal2-success
+[class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0
+3.75em;border-radius:0 7.5em 7.5em 0}div:where(.swal2-icon).swal2-success
+.swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25
+em solid rgba(165,220,134,.3);border-radius:50%}div:where(.swal2-icon).swal2-success
+.swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}div:whe
+re(.swal2-icon).swal2-success
+[class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc
+86}div:where(.swal2-icon).swal2-success
+[class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}div:where(.swal2-icon).sw
+al2-success
+[class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}div:where(.swal2-icon).sw
+al2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip
+.75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long
+.75s}div:where(.swal2-icon).swal2-success.swal2-icon-show
+.swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s
+ease-in}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show
+.3s}.swal2-hide{animation:swal2-hide .15s
+forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow
+:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes
+swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0)
+rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes
+swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes
+swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:
+-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes
+swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375
+em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes
+swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes
+swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes
+swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left
+:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyfram
+es
+swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em
+;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes
+swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{tr
+ansform:rotate(-405deg)}}@keyframes
+swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);op
+acity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes
+swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes
+swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes
+swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes
+swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15de
+g);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdro
+p):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop
+.swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container
+.swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px
+rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll
+!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:n
+ot(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown
+.swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2
+-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown
+.swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto
+auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto
+auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown
+.swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown
+.swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown
+.swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto
+auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown
+.swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0
+50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown
+.swal2-container.swal2-bottom-right{inset:auto 0 0 auto}</style></head>
+643
+644
+645 <body>
+646
+647
+648
+649 <section id="nav-main-head">
+650 <div class="show-lang-pc">
+651 <div class="dropdown-menu">
+652 <div class=" dropdown-item-head ">
+653 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-th.png?v1.0" class="image-lang" alt="">
+654 ไทย</
+<span class="text color-text mx-2"> span>
+655 <i class="fas fa-chevron-up arrow ms-auto"></i>
+656 </div>
+657 <a class=" dropdown-item d-flex align-items-center"
+href="https://รอระบบ domain เสร็จ.com/greeting/ENG">
+658 <div>
+659 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-eng.png?v1.0" class="image-lang" alt="">
+660 </div>
+661 <div>
+662 <span class="ms-2">ENGLISH</span>
+663 </div>
+664 </a>
+665 <a class=" dropdown-item d-flex align-items-center"
+href="https://รอระบบ domain เสร็จ.com/greeting/LAO">
+666 <div>
+667 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-la.png?v1.0" class="image-lang" alt="">
+668 </div>
+669 <div>
+670 ລາວ
+<span class="ms-2"> </span>
+671 </div>
+672 </a>
+673 <a class=" dropdown-item d-flex align-items-center"
+href="https://รอระบบ domain เสร็จ.com/greeting/MMR">
+674 <div>
+675 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-mmr.png?v1.0" class="image-lang" alt="">
+676 </div>
+677 <div>
+678 679 <span class="ms-2"> </span>
+ြမန်မာ
+</div>
+680 </a>
+681 </div>
+682 </div>
+683 <nav class="navbar navbar-main bg-white navbar-expand-lg d-inline p-0 nav-head-top">
+684 <div class="container">
+685 <div class="col-12">
+686 <div class="row">
+687 <div class="col-12 mt-1 mb-1">
+688 <div class=" d-flex justify-content-end align-items-center">
+689 <div class=" d-flex justify-content-center align-items-center">
+690 <button class="dropdown-btn">
+691 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-th.png?v1.0" class="image-lang" alt="">
+692 ไทย</
+<span class="text color-text ms-2"> span>
+693 <i class="fas fa-chevron-down arrow ms-3"></i>
+694 </button>
+695 </div>
+696 <div class="main-color ms-1">
+697 <a class="cursor-click" href="https://รอระบบ domain เสร็จ.com/manual"><img
+src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon_manual-book.svg?v1.0" alt=""> a>
+คู่มือการใช้งาน</
+698 </div>
+699 </div>
+700 </div>
+701 </div>
+702 </div>
+703 </div>
+704 </nav>
+705 <nav class="navbar navbar-main navbar-expand-lg bg-main d-inline slide-head-menu" id="slide-head-menu">
+706 <div class="container bg-main">
+707 <div class="col-12">
+708 <div class="row justify-content-center">
+709 <div class="col-12 d-flex">
+710 <div class="nav-brand col-3 nav-logo d-flex justify-content-lg-start" role="search">
+711 712 713 714 715 716 717 718 719 720 721 722 723 724 725 726 727 728 729 730 731 732 733 734 735 736 737 738
+739 740 741 742 743 744 745 746 747 748 749 750 751
+752 753 754 755 756 757 758 759 760 761 762 763 764 765 766
+767 768 769 770 771 772 <a class="navbar-brand d-flex" href="https://รอระบบ domain เสร็จ.com/home">
+<img class="img-logo" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/zelect_logo_horizon.png?v1.0"
+alt="logo-zelect">
+</a>
+</div>
+<div class="col-9 col-md-9 mt-lg-0 d-flex align-items-end align-self-center">
+<div class="collapse show d-flex navbar-collapse
+justify-content-end h-100" id="navbarTogglerPH">
+<div class="d-flex align-items-center justify-content-end d-serach-acc-mb">
+<div class="input-group cut-con-search unlog-search" role="search">
+<div class="con-search-main">
+<div class="con-search-input">
+<input class="form-control con-search search-product" type="text" placeholder="
+ค้นหาสินค้า หรือ
+ร้านค้า หรือ หมวดหมู่" aria-label="Search" aria-describedby="Search" id="search_product">
+</div>
+</div>
+<button class="btn custom-btn-search cut-search search-button" type="button" id="search_button">
+<i class="fas fa-search"></i>
+</button>
+</div>
+<div class="nav-item-top btn-login-mb">
+<a class="text-white"
+href="https://รอระบบ domain เสร็จ.com/user/login?next=https%3A%2F%2Fรอระบบ domain เสร็จ.com">
+<i class="fas fa-sign-in-alt"></i>
+</a>
+</div>
+</div>
+<div class="menu-auth-pc">
+<div class="but-nav-regis d-lg-block">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-end">
+<li class="nav-item me-3">
+</li>
+</ul>
+</div>
+<div class="but-nav-regis d-lg-block">
+<ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-end">
+<li class="nav-item">
+<a class="btn custom-btn-search custom-sell-login d-flex justify-content-center
+align-items-center"
+href="https://รอระบบ domain เสร็จ.com/user/login?next=https%3A%2F%2Fรอระบบ domain เสร็จ.com"><i
+เข้าสู่ระบบ</ class="fas fa-user me-2"></i> a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+ปิดแท็ก </div> <!-- div.con-nav col-12 justify-content-between -->
+ปิดแท็ก </div> <!-- div.row justify-content-center -->
+ปิดแท็ก </div> <!-- div.col-11 -->
+ปิดแท็ก </div> <!-- div.container-fluid -->
+<a class="box-cart-badge d-none" href="https://รอระบบ domain เสร็จ.com/cart">
+<div class="box-cart-badge__content">
+<span class="box-cart-badge__content__qty">0</span>
+</div>
+<i class="fas fa-shopping-cart"></i>
+</a>
+</nav>
+<div class="background-container"></div>
+</section>
+<div class="container">
+<div class="col-12">
+<div class="spanner-banner-s"></div>
+<div id="imgBanners" class="carousel slide img-banners" data-bs-ride="true">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#imgBanners" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"
+class="active"></button>
+773 </div>
+774 <div class="carousel-inner " id="imgBanner">
+775
+776 <div class="carousel-item active">
+777 <img class="d-block w-100" alt="..." src="https://assets.รอระบบ domain เสร็จ.com/public/banner_ph/landing-banner-top.jpg?v1.0"
+id="Banners_img_1">
+778 </div></div>
+779 <button class="carousel-control-prev" type="button" data-bs-target="#imgBanners" data-bs-slide="prev">
+780 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+781 <span class="visually-hidden">Previous</span>
+782 </button>
+783 <button class="carousel-control-next" type="button" data-bs-target="#imgBanners" data-bs-slide="next">
+784 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+785 <span class="visually-hidden">Next</span>
+786 </button>
+787 </div>
+788 </div>
+789 </div>
+790 <div class="container wrapper">
+791 <div class="col-12 mx-auto">
+792
+793 <div class="container">
+794 <div class="show-spinner-cate mt-md-5 mb-md-5 text-center spinnerAll"></div>
+795 <div class="row justify-content-center" id="boxCateDetails">
+796 <div class="icon-bar-row row d-flex flex-nowrap col-12" id="boxCateDetail">
+797 <div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 d-none align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom">
+798 <a href="#" class="cateDetailTooltip">
+799 <img src="" alt="">
+800 <p class="icon-text"></p>
+801 </a>
+802 </div>
+803 <div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip" data-bs-placement="bottom"
+data-bs-title="
+ผลิตภัณฑ์บํารุงและเสริมความงาม">
+804 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0
+%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E0%B8%9A%E0%B8%B3%E0%B8%A3%E0%B8%B
+8%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B
+8%A1%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%87%E0%B8%B2%E0%B8%A1"
+class="cateDetailTooltip">
+805 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_03.png?v2.0" alt="
+ผลิตภัณฑ์บํารุงและเสริมความงาม">
+806 ผลิตภัณฑ์บํารุงและเสริมความงาม</ <p class="icon-text"> p>
+807 </a>
+808 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+เครืองประดับ">
+809 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0
+%B9%88%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B1%E0%B8%9
+A" class="cateDetailTooltip">
+810 เครืองประดับ">
+<img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_09.png?v2.0" alt="
+811 เครืองประดับ</ <p class="icon-text"> p>
+812 </a>
+813 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+เครืองใช้ไฟฟ้าภายในบ้าน">
+814 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0
+%B9%88%E0%B8%AD%E0%B8%87%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E0%B8%9F%E0%B8%9F
+%E0%B9%89%E0%B8%B2%E0%B8%A0%E0%B8%B2%E0%B8%A2%E0%B9%83%E0%B8%99%E0%B8%9A%E0%B9
+%89%E0%B8%B2%E0%B8%99" class="cateDetailTooltip">
+815 เครืองใช้ไฟฟ้าภายในบ้าน">
+<img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_02.png?v2.0" alt="
+816 เครืองใช้ไฟฟ้าภายในบ้าน</ <p class="icon-text"> p>
+817 </a>
+818 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+มือถือและอุปกรณ์เสริม">
+819 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%96%E0
+%B8%B7%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%8
+1%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1"
+class="cateDetailTooltip">
+820 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_01.png?v2.0" alt="มือถือและอุปกรณ์เสริม">
+821 มือถือและอุปกรณ์เสริม</ <p class="icon-text"> p>
+822 </a>
+823 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+แม่และเด็ก">
+824 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%81%E0%B8%A1%E0%B9%88%E0%B9%81%E0
+%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%94%E0%B9%87%E0%B8%81" class="cateDetailTooltip">
+825 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_05.png?v2.0" alt="
+แม่และเด็ก">
+826 แม่และเด็ก</ <p class="icon-text"> p>
+827 </a>
+828 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+เกมและอุปกรณ์เสริม">
+829 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%81%E0%B8%A1%E0%B9%81%E0
+%B8%A5%E0%B8%B0%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8
+C%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1" class="cateDetailTooltip">
+830 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_04.png?v2.0" alt="
+เกมและอุปกรณ์เสริม">
+831 เกมและอุปกรณ์เสริม</ <p class="icon-text"> p>
+832 </a>
+833 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+เครืองใช้ในบ้าน">
+834 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0
+%B9%88%E0%B8%AD%E0%B8%87%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%83%E0%B8%99%E0%B8%9A
+%E0%B9%89%E0%B8%B2%E0%B8%99" class="cateDetailTooltip">
+835 เครืองใช้ในบ้าน">
+<img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_06.png?v2.0" alt="
+836 เครืองใช้ในบ้าน</ <p class="icon-text"> p>
+837 </a>
+838 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+กีฬาและกิจกรรมกลางแจ้ง">
+839 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%81%E0%B8%B5%E0%B8%AC%E0%B8%B2%E0
+%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%81%E0%B8%B4%E0%B8%88%E0%B8%81%E0%B8%A3%E0%B8%A3
+%E0%B8%A1%E0%B8%81%E0%B8%A5%E0%B8%B2%E0%B8%87%E0%B9%81%E0%B8%88%E0%B9%89%E0%B8
+%87" class="cateDetailTooltip">
+840 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_08.png?v2.0" alt="
+กีฬาและกิจกรรมกลางแจ้ง">
+841 กีฬาและกิจกรรมกลางแจ้ง</ <p class="icon-text"> p>
+842 </a>
+843 </div><div class="icon-cate col-3 col-md-4 col-lg-1 col-md-2 align-items-center" data-bs-toggle="tooltip"
+data-bs-placement="bottom" data-bs-title="
+รถยนต์ อะไหล่และอุปกรณ์เสริมรถยนต์">
+844 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%A3%E0%B8%96%E0%B8%A2%E0%B8%99%E0
+%B8%95%E0%B9%8C+%E0%B8%AD%E0%B8%B0%E0%B9%84%E0%B8%AB%E0%B8%A5%E0%B9%88%E0%B9%
+81%E0%B8%A5%E0%B8%B0%E0%B8%AD%E0%B8%B8%E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0
+%B9%8C%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%A3%E0%B8%96%E0%B8%A
+2%E0%B8%99%E0%B8%95%E0%B9%8C" class="cateDetailTooltip">
+845 <img src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_07.png?v2.0" alt="
+รถยนต์ อะไหล่และอุปกรณ์เสริมรถยนต์">
+846 รถยนต์ อะไหล่และอุปกรณ์เสริมรถยนต์</ <p class="icon-text"> p>
+847 </a>
+848 </div></div>
+849 </div>
+850 </div>
+851
+852 <!-- Product hot hit Container -->
+853
+854
+855 <div class="container mb-3 mt-5 hot-hide">
+856 <div class="row justify-content-center">
+857
+858
+859
+860 <div class="sale-banner col-12 mt-3 mb-3 d-flex justify-content-center p-0 clear-best-sale d-none">
+861 <div class="sale-banner col-12 " id="boxImgBannerOut">
+862 <div class="spinner-banner text-center"> </div>
+863 <img class="icon-img d-none" src="" alt="">
+864 </div>
+865 </div>
+866
+867 <div class="show-spinner-supersale text-center p-1 clear-best-sale d-none"></div>
+868 <div class="item-product-row col-12 justify-content-center supersale-hide d-flex p-0 clear-best-sale d-none">
+869 <div class="product-item box-product-supersale row flex-wrap col-12 row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5
+g-3" id="boxProductSupersale" style="justify-content: center !important;"><div class="text-center"><img class="nodata-icon"
+src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/manual-no-data.png?v1.0"></div></div>
+870 </div>
+871 <div class="best-head col-12 normal-check d-none">
+872 <div class="best-seller col-12">
+873 สินค้าทัวไป</ <div class="best"> div>
+874 <div class="best-seller-all">
+875
+876 </div>
+877 </div>
+878 </div>
+879
+880 <div class="container bestseller-hide">
+881 <div class="row justify-content-center best-seller mt-3">
+882 <div class="best-head col-12">
+883 <div class="best-seller col-12">
+884 สินค้าแนะนํา</ <div class="best"> div>
+885 <div class="best-seller-all">
+886 ดูทังหมด
+<a href="https://รอระบบ domain เสร็จ.com/user/product/search?type=best_seller" class="view-all-link"> &gt;</a>
+887 </div>
+888 </div>
+889 </div>
+890 <div class="show-spinner-product-best text-center p-1"></div>
+891
+892 <div class="product-item best-product row flex-wrap col-12 row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3
+justify-content-md-start" id="boxProductBestSeller">
+893 <a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=133&amp;name=%E0%B8%8B%E0%B8%B5%E0%B8%A3%E
+0%B8%B1%E0%B9%88%E0%B8%A1%E0%B8%A5%E0%B8%94%E0%B8%88%E0%B8%B8%E0%B8%94%E0%B8
+%94%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%94%E0%B8%B3+Dr.O+MELASMA+PERFECT+SKIN+CREA
+M+20+g.&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom"
+ซีรัมลดจุดด่างดํา product-id="133" data-bs-original-title=" Dr.O MELASMA PERFECT SKIN CREAM 20 g.">
+894 <div class="product col border-product">
+895 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+896 <div class="box-img-product">
+897 <div class="product-image">
+898 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/133/667f986f8beaf.jpeg)"></div>
+899 </div>
+900 <div class="box-discount d-none">
+901 <div class="dis-item justify-content-start box-dis">
+902 <div class="back-inline back-color back-size">
+903 <div class="dis-text">
+904 <span class="text-percent"></span>
+905 </div>
+906 </div>
+907 </div>
+908 </div>
+909 <div class="box-icon-product">
+910 <div class="dis-item justify-content-end box-like">
+911 <div class="back-inline icon-box">
+912
+913 </div>
+914 </div>
+915 </div>
+916 </div>
+917 </div>
+918 ซีรัมลดจุดด่างดํา <div class="product-name"> Dr.O MELASMA PERFECT SKIN CREAM 20 g.</div>
+919 <div class="row new_coin">
+920 <div class="col-12">
+921 <div class="price prices-box mt-1">
+922 ฿ <span class="price"> 199</span>
+923 <span class="original-price d-none"></span>
+924 </div>
+925 <div class="progress d-none">
+926 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+927 <span class="progress-text"></span>
+928 </div>
+929 </div>
+930 931 932 933 934 935 936
+937 938 939 940 941 942 943 944 945 946 947 948 949 950 951 952 953 954 955 956 957 958 959 960
+961 962 963 964 965 966 967 968 969 970 971 972 973 974 975 976 977 978 979 980 981 982 983 984
+985 986 987 988 989 </div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(2)</div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-td d-none"><span>21.18 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=135&amp;name=%E0%B8%84%E0%B8%A3%E0%B8%B5%E0%B8%A1%
+E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%81%E0%B8%94%E0%B8%94+DR.O+ANTI-AGING+%26+BRIGHTENING+SUN
++SERUM+SPF50%2B+PA%2B%2B%2B%2B+20g.&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="135" data-bs-original-title=" ครีมกันแดด
+DR.O ANTI-AGING &amp; BRIGHTENING SUN
+SERUM SPF50+ PA++++ 20g.">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/135/667fa9c5ca548.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+ครีมกันแดด <div class="product-name"> DR.O ANTI-AGING &amp; BRIGHTENING SUN SERUM SPF50+ PA++++ 20g.</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 199</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(3)</div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-td d-none"><span>21.18 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=131&amp;name=%E0%B8%A1%E0%B8%B2%E0%B8%AA%E0%B8%81%
+E0%B9%8C%E0%B8%9A%E0%B8%B3%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%
+B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B8%99%E0%B8%
+AD%E0%B8%99+DR.O+SLEEPING+MASK+%26+NIGHT+BOOSTER+CREAM+20+g.&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="131"
+มาสก์บํารุงผิวหน้าก่อนนอน data-bs-original-title=" DR.O SLEEPING MASK &amp; NIGHT BOOSTER CREAM 20 g.">
+990 <div class="product col border-product">
+991 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+992 <div class="box-img-product">
+993 <div class="product-image">
+994 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/131/667f940eb711e.jpeg)"></div>
+995 </div>
+996 <div class="box-discount d-none">
+997 <div class="dis-item justify-content-start box-dis">
+998 <div class="back-inline back-color back-size">
+999 <div class="dis-text">
+1000 <span class="text-percent"></span>
+1001 </div>
+1002 </div>
+1003 </div>
+1004 </div>
+1005 <div class="box-icon-product">
+1006 <div class="dis-item justify-content-end box-like">
+1007 <div class="back-inline icon-box">
+1008
+1009 </div>
+1010 </div>
+1011 </div>
+1012 </div>
+1013 </div>
+1014 มาสก์บํารุงผิวหน้าก่อนนอน <div class="product-name"> DR.O SLEEPING MASK &amp; NIGHT BOOSTER CREAM 20 g.</div>
+1015 <div class="row new_coin">
+1016 <div class="col-12">
+1017 <div class="price prices-box mt-1">
+1018 ฿ <span class="price"> 199</span>
+1019 <span class="original-price d-none"></span>
+1020 </div>
+1021 <div class="progress d-none">
+1022 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1023 <span class="progress-text"></span>
+1024 </div>
+1025 </div>
+1026 </div>
+1027 <div class="product-rating d-flex justify-content-between">
+1028 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(2)</div></div>
+1029 <div class="cart-shop-box">
+1030 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1031 </div>
+1032
+1033 <div class="coin-td d-none"><span>21.18 MV</span> </div>
+1034 </div>
+1035 <div class="sell-unit"><span></span></div>
+1036 </div>
+1037 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=140&amp;name=%E0%B8%84%E0%B8%B8%E0%B8%8A%E0%B8%8A%
+E0%B8%B1%E0%B9%88%E0%B8%99%E0%B9%80%E0%B8%99%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%81%E0%
+B8%A1%E0%B8%97%E0%B8%97%E0%B9%8C+Snowgirl+Watermelon+DD+Cushion+9g.*6pcs%2Fbox+%281+%E0%B8%81%E0
+%B8%A5%E0%B9%88%E0%B8%AD%E0%B8%87+%E0%B8%9A%E0%B8%A3%E0%B8%A3%E0%B8%88%E0%B8%B8+6+%E
+0%B8%8B%E0%B8%AD%E0%B8%87%29&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="140" data-bs-original-title=" คุชชันเนือแมทท์
+Snowgirl Watermelon DD Cushion 9g.*6pcs/box (1
+กล่อง บรรจุ 6 ซอง)">
+1038 <div class="product col border-product">
+1039 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1040 <div class="box-img-product">
+1041 <div class="product-image">
+1042 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/140/667fc4bd8ebb5.jpeg)"></div>
+1043 </div>
+1044 <div class="box-discount">
+1045 <div class="dis-item justify-content-start box-dis">
+1046 <div class="back-inline back-color back-size">
+1047 <div class="dis-text">
+1048 <span class="text-percent">15%</span>
+1049 </div>
+1050 </div>
+1051 </div>
+1052 </div>
+1053 <div class="box-icon-product">
+1054 <div class="dis-item justify-content-end box-like">
+1055 <div class="back-inline icon-box">
+1056
+1057 </div>
+1058 </div>
+1059 </div>
+1060 </div>
+1061 </div>
+1062 คุชชันเนือแมทท์ กล่อง บรรจุ 6 ซอง)</ <div class="product-name"> Snowgirl Watermelon DD Cushion 9g.*6pcs/box (1 div>
+1063 <div class="row new_coin">
+1064 <div class="col-12">
+1065 <div class="price prices-box mt-1">
+1066 ฿ <span class="price"> 279</span>
+1067 ฿ <span class="original-price"> 329</span>
+1068 </div>
+1069 <div class="progress d-none">
+1070 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1071 <span class="progress-text"></span>
+1072 </div>
+1073 </div>
+1074 </div>
+1075 <div class="product-rating d-flex justify-content-between">
+1076 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(1)</div></div>
+1077 <div class="cart-shop-box">
+1078 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1079 </div>
+1080 <div class="coin-pv mb-1 d-none">5.00 PV</div>
+1081 <div class="coin-td d-none"><span>16.35 MV</span> </div>
+1082 </div>
+1083 <div class="sell-unit"><span></span></div>
+1084 </div>
+1085 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=150&amp;name=M100-01+%E0%B8%99%E0%B9%89%E0%B8%B3%E0%
+B8%A1%E0%B8%B1%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%94%E0%B8%B3%E0%B8%AA%E0%B8%81%E0%B8%
+B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%99&amp;affiliate=" class="delete-product-favorites"
+data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="150" data-bs-original-title="M100-01
+นํามันงาดําสกัดเย็น">
+1086 <div class="product col border-product">
+1087 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1088 <div class="box-img-product">
+1089 <div class="product-image">
+1090 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/150/66b35fcc58076.png)"></div>
+1091 </div>
+1092 <div class="box-discount d-none">
+1093 <div class="dis-item justify-content-start box-dis">
+1094 <div class="back-inline back-color back-size">
+1095 <div class="dis-text">
+1096 <span class="text-percent"></span>
+1097 </div>
+1098 </div>
+1099 </div>
+1100 </div>
+1101 <div class="box-icon-product">
+1102 <div class="dis-item justify-content-end box-like">
+1103 <div class="back-inline icon-box">
+1104
+1105 </div>
+1106 </div>
+1107 </div>
+1108 </div>
+1109 </div>
+1110 นํามันงาดําสกัดเย็น</ <div class="product-name">M100-01 div>
+1111 <div class="row new_coin">
+1112 <div class="col-12">
+1113 <div class="price prices-box mt-1">
+1114 ฿ <span class="price"> 1,390</span>
+1115 <span class="original-price d-none"></span>
+1116 </div>
+1117 <div class="progress d-none">
+1118 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1119 <span class="progress-text"></span>
+1120 </div>
+1121 </div>
+1122 </div>
+1123 <div class="product-rating d-flex justify-content-between">
+1124 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(1)</div></div>
+1125 <div class="cart-shop-box">
+1126 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1127 </div>
+1128
+1129 <div class="coin-td d-none"><span>18.35 MV</span> </div>
+1130 </div>
+1131 <div class="sell-unit"><span></span></div>
+1132 </div>
+1133 </a></div>
+1134
+1135 </div>
+1136 </div>
+1137
+1138 <div class="container mt-3 mb-3 show-shops">
+1139 <div class="row justify-content-center hide-show-box">
+1140 <div class="shop-store-row align-items-center justify-content-between row col-12 p-0">
+1141 <div class="shop-store d-flex justify-content-between col-12">
+1142 ช็อปตามร้านค้า</ <div class="shop"> div>
+1143 <div class="shop-store-all shop-store-alls">
+1144 ดูทังหมด
+<a href="https://รอระบบ domain เสร็จ.com/user/product/search?type=shop" class="view-all-link"> &gt;</a>
+1145 </div>
+1146 </div>
+1147 <div class="show-spinner-shop text-center p-1 "></div>
+1148 <div class="shop-banner-row row col-12 flex-wrap row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3"
+id="boxShowShop">
+1149
+1150 <div class="shop-banner product col border-product mb-2">
+1151 <div class="border-images-fix box-img-product">
+1152 <div class="box-img-product">
+1153 <div class="product-image">
+1154 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/seller/663417260/66546fb63bcac.png)">
+1155
+1156 <div class="box-icon-product">
+1157 <div class="dis-item justify-content-end box-like">
+1158 <div class="back-inline icon-box">
+1159
+1160 </div>
+1161 </div>
+1162 </div>
+1163 </div>
+1164 </div>
+1165 </div>
+1166 </div>
+1167 <div class="product-name shop-name">Alpha Shop TH</div>
+1168 ธรุกิจ
+<div class="shop-detail"> ALPHA เริมต้นจากความมุ่งมันทีจะสร้างผู้นําทีแข็งแกร่งในทุกมิติ ทังในด้านของสินค้าทีตอบโจทย์ทุกไลฟ์สไตล์ และมีมากมายกว่า
+50 รายการ โดยเน้นนวัตกรรมและคุณภาพของสินค้า แผนการตลาดทีสามารถทําได้ง่ายทังในโลกออนไลน์และออฟไลน์ เพือสร้างรายได้อย่างไร้ขีดจํากัด
+รวมทังสร้างความมันคงให้กับผู้นํา เติบโตได้อย่างไร้ขีดจํากัด และสร้างความพึงพอใจให้แก่ผู้บริโภคในระยะยาว</div>
+1169 <div class="d-flex justify-content-center mt-3">
+1170 <a class="a-shop-view"
+href="https://รอระบบ domain เสร็จ.com/user/shop?seller_member_code=663417260&amp;name=Alpha+Shop+TH&amp;af
+filiate=">
+1171 เยียมชมร้านค้า</
+<button class="btn btn-shop-view" type="button"> button>
+1172 </a>
+1173 </div>
+1174 </div></div>
+1175 </div>
+1176 </div>
+1177 </div>
+1178
+1179
+1180 <div class="container mb-3 hide-category">
+1181 <div class="row justify-content-center " id="hideCategoryAll">
+1182 <div class="hot-cate-row row col-12">
+1183 <div class="hot-cate d-flex justify-content-between p-0">
+1184 หมวดหมู่ยอดฮิต</ <div class="cate"> div>
+1185 <div class="hot-cate-all">
+1186 ดูทังหมด
+<a href="https://รอระบบ domain เสร็จ.com/user/product/search?type=cate_hot" class="view-all-link"> &gt;</a>
+1187 </div>
+1188 </div>
+1189 </div>
+1190 <div class="spinner-category-best text-center"></div>
+1191 <div class="cate-hit-row show-category-best p-0 row col-12">
+1192 <div class="cate-hit row col-12 d-flex flex-wrap row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 g-0">
+1193 <div class="cate-row col d-none">
+1194 <div class="cate-hit-box bg-white ">
+1195 <div class="cate-box-img d-flex justify-content-center">
+1196 <a href="">
+1197 <img class="img-category" src="" alt="
+รูปหมวดหมู่">
+1198 </a>
+1199 </div>
+1200 <div>
+1201 <div class="cate-name"></div>
+1202 <div class="cate-num"></div>
+1203 </div>
+1204 </div>
+1205 </div>
+1206 <div class="cate-row col">
+1207 <div class="cate-hit-box bg-white ">
+1208 <div class="cate-box-img d-flex justify-content-center">
+1209 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%
+B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E0%B8%9A%E0%B8%B3%E
+0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AA
+%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8
+%87%E0%B8%B2%E0%B8%A1">
+1210 <img class="img-category" src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_03.png?v2.0"
+alt="
+ผลิตภัณฑ์บํารุงและเสริมความงาม">
+1211 </a>
+1212 </div>
+1213 <div>
+1214 <div class="cate-name"> div>
+ผลิตภัณฑ์บํารุงและเสริมความงาม</
+1215 <div class="cate-num"></div>
+1216 </div>
+1217 </div>
+1218 </div><div class="cate-row col">
+1219 <div class="cate-hit-box bg-white ">
+1220 <div class="cate-box-img d-flex justify-content-center">
+1221 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%
+B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%94%E
+0%B8%B1%E0%B8%9A">
+1222 <img class="img-category" src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_09.png?v2.0"
+alt="
+เครืองประดับ">
+1223 </a>
+1224 </div>
+1225 <div>
+1226 เครืองประดับ</
+<div class="cate-name"> div>
+1227 <div class="cate-num"></div>
+1228 </div>
+1229 </div>
+1230 </div><div class="cate-row col">
+1231 <div class="cate-hit-box bg-white ">
+1232 <div class="cate-box-img d-flex justify-content-center">
+1233 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B9%80%E0%B8%84%E0%B8%A3%E0%
+B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%83%E0%B8%8A%E0%B9%89%E0%B9%84%E
+0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B8%A0%E0%B8%B2%E0%B8%A2%E0%B9%83
+%E0%B8%99%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99">
+1234 <img class="img-category" src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_02.png?v2.0"
+alt="
+เครืองใช้ไฟฟ้าภายในบ้าน">
+1235 </a>
+1236 </div>
+1237 <div>
+1238 เครืองใช้ไฟฟ้าภายในบ้าน</
+<div class="cate-name"> div>
+1239 <div class="cate-num"></div>
+1240 </div>
+1241 </div>
+1242 </div><div class="cate-row col">
+1243 <div class="cate-hit-box bg-white ">
+1244 <div class="cate-box-img d-flex justify-content-center">
+1245 <a
+href="https://รอระบบ domain เสร็จ.com/user/product/search?category=%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%
+B8%96%E0%B8%B7%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AD%E0%B8%B8%
+E0%B8%9B%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%80%E0%B8%AA%E0%B8%A
+3%E0%B8%B4%E0%B8%A1">
+1246 <img class="img-category" src="https://assets.รอระบบ domain เสร็จ.com/public/categories/cat_01.png?v2.0"
+alt="
+มือถือและอุปกรณ์เสริม">
+1247 </a>
+1248 </div>
+1249 <div>
+1250 <div class="cate-name"> div>
+มือถือและอุปกรณ์เสริม</
+1251 <div class="cate-num"></div>
+1252 </div>
+1253 </div>
+1254 </div></div>
+1255 </div>
+1256 </div>
+1257 </div>
+1258
+1259 <div class="container mb-3 hide-category-Affiliate ">
+1260 <div class="row justify-content-center ">
+1261 <div class="affiliate-row row col-12">
+1262 <div class="affiliate-box d-flex justify-content-between p-0">
+1263 <div class="affiliate-text">Affiliate</div>
+1264 </div>
+1265 </div>
+1266 <div class="row row-cols-2 row-cols-md-4 p-0 close__category-Affiliate">
+1267
+1268 <div class="col aff_col">
+1269 <div class="aff_box bg-white">
+1270 <div class="aff_img mb-3" style="background-image:
+url(&quot;https://assets.รอระบบ domain เสร็จ.com/public/assets/images/affiliate/logo.png&quot;);"></div>
+1271 <div class="aff_content text-center">
+1272 พันล้าน</
+<h4 class="text-center aff_name"> h4>
+1273 ยิงซือ ยิงคุ้ม ให้เงินคืนทุกครังทีคุณสังสินค้าผ่าน</ <p class="aff_detail"> p>
+1274 <button class="btn btn-affiliate"> button>
+ช้อปเลย</
+1275 </div>
+1276 </div>
+1277 </div></div>
+1278 <div class="col aff_col box__category-Affiliate d-none">
+1279 <div class="aff_box bg-white">
+1280 <div class="aff_img mb-3"></div>
+1281 <div class="aff_content text-center">
+1282 <h4 class="text-center aff_name"></h4>
+1283 <p class="aff_detail"> </p>
+1284 <button class="btn btn-affiliate"> button>
+ช้อปเลย</
+1285 </div>
+1286 </div>
+1287 </div>
+1288 </div>
+1289 </div>
+1290 <div class="show-spinner-category-Affiliate col-12 text-center p-1"></div>
+1291
+1292 <div class="container mt-3 mb-3 new-hide">
+1293 <div class="row justify-content-center product-new">
+1294 <div class="shop-store-row align-items-center justify-content-between row col-12 p-0 ">
+1295 <div class="shop-store d-flex justify-content-between col-12">
+1296 สินค้าใหม่</ <div class="shop"> div>
+1297 <div class="shop-store-all shop-store-all-new">
+1298 ดูทังหมด
+<a href="https://รอระบบ domain เสร็จ.com/user/product/search?type=new" class="view-all-link"> &gt;</a>
+1299 </div>
+1300 </div>
+1301 <div class="show-spinner-product-new p-1 text-center"></div>
+1302 <div class="item-product-row col-12 justify-content-center d-flex p-0">
+1303 <div class="product-item boxProductNew row flex-wrap col-12 row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-5
+g-3" id="boxProductNew">
+1304 <a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=161&amp;name=%E0%B9%81%E0%B8%9E%E0%B9%87%
+E0%B8%84+S++DR.O+Skincare+500+PV&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+แพ็ค
+data-bs-placement="bottom" product-id="161" data-bs-original-title=" S DR.O Skincare 500 PV">
+1305 <div class="product col border-product">
+1306 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1307 <div class="box-img-product">
+1308 <div class="product-image">
+1309 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/161/67692a6c87df6.jpeg)"></div>
+1310 </div>
+1311 <div class="box-discount d-none">
+1312 <div class="dis-item justify-content-start box-dis">
+1313 <div class="back-inline back-color back-size">
+1314 <div class="dis-text">
+1315 <span class="text-percent"></span>
+1316 </div>
+1317 </div>
+1318 </div>
+1319 </div>
+1320 <div class="box-icon-product">
+1321 <div class="dis-item justify-content-end box-like">
+1322 <div class="back-inline icon-box">
+1323
+1324 </div>
+1325 </div>
+1326 </div>
+1327 </div>
+1328 </div>
+1329 แพ็ค <div class="product-name"> S DR.O Skincare 500 PV</div>
+1330 <div class="row new_coin">
+1331 <div class="col-12">
+1332 <div class="price prices-box mt-1">
+1333 ฿ <span class="price"> 3,990</span>
+1334 <span class="original-price d-none"></span>
+1335 </div>
+1336 <div class="progress d-none">
+1337 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1338 <span class="progress-text"></span>
+1339 </div>
+1340 </div>
+1341 </div>
+1342 <div class="product-rating d-flex justify-content-between">
+1343 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+1344 <div class="cart-shop-box">
+1345 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1346 </div>
+1347 <div class="coin-pv mb-1 d-none">500.00 PV</div>
+1348 <div class="coin-td d-none"><span>16.24 MV</span> </div>
+1349 </div>
+1350 1351 1352 1353 1354 1355 1356 1357 1358 1359 1360 1361 1362 1363 1364 1365 1366 1367 1368 1369 1370 1371
+1372 1373 1374 1375 1376 1377 1378 1379 1380 1381 1382 1383 1384 1385 1386 1387 1388 1389 1390 1391 1392 1393 1394 1395 1396 1397 1398 1399 1400 1401 1402 1403 1404 1405 1406 1407 1408 1409 <div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=160&amp;name=P500+Creator+S+%E0%B8%8A%E0%B8%B8%E0%B8%9
+4%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E
+0%B8%87%E0%B8%B2%E0%B8%94%E0%B8%B3&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="160" data-bs-original-title="P500 Creator S
+ชุดผลิตภัณฑ์งาดํา">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/160/66d1a41506797.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+ชุดผลิตภัณฑ์งาดํา</ <div class="product-name">P500 Creator S div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 3,990</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">500.00 PV</div>
+<div class="coin-td d-none"><span>129.41 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=159&amp;name=P8000+Seller+L-5+SKU&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="159" data-bs-original-title="P8000
+Seller L-5 SKU">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/159/66b5ce5f1f854.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+1410 1411 1412 1413 1414 1415 1416 1417 1418 1419
+1420 1421 1422 1423 1424 1425 1426 1427 1428 1429 1430 1431 1432 1433 1434 1435 1436 1437 1438 1439 1440 1441 1442 1443 1444 1445 1446 1447 1448 1449 1450 1451 1452 1453 1454 1455 1456 1457 1458 1459 1460 1461 1462 1463 1464 1465 1466 1467
+1468 1469 1470 1471 1472 1473 1474 <div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">P8000 Seller L-5 SKU</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 100,000</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">8,000.00 PV</div>
+<div class="coin-td d-none"><span>8,235.29 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=158&amp;name=P6000+Seller+M-2+SKU&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="158" data-bs-original-title="P6000
+Seller M-2 SKU">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/158/66b5cdbb9595f.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">P6000 Seller M-2 SKU</div>
+<div class="row new_coin">
+1475 1476 1477 1478 1479 1480 1481 1482 1483 1484 1485 1486 1487 1488 1489 1490 1491 1492 1493 1494 1495 1496 1497 1498 1499 1500 1501 1502 1503 1504 1505 1506 1507 1508 1509 1510 1511 1512 1513 1514 1515
+1516 1517 1518 1519 1520 1521 1522 1523 1524 1525 1526 1527 1528 1529 1530 1531 1532 1533 1534 1535 1536 1537 <div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 80,000</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">6,000.00 PV</div>
+<div class="coin-td d-none"><span>7,058.82 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=157&amp;name=P5000+Seller+S-1+SKU&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="157" data-bs-original-title="P5000
+Seller S-1 SKU">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/157/66b5cc59948fa.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">P5000 Seller S-1 SKU</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 60,000</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1538 1539 1540 1541 1542 1543 1544 1545 1546 1547 1548 1549 1550 1551 1552 1553 1554 1555 1556 1557 1558 1559 1560 1561 1562 1563
+1564 1565 1566 1567 1568 1569 1570 1571 1572 1573 1574 1575 1576 1577 1578 1579 1580 1581 1582 1583 1584 1585 1586 1587
+1588 1589 1590 1591 1592 </div>
+<div class="coin-pv mb-1 d-none">5,000.00 PV</div>
+<div class="coin-td d-none"><span>5,882.35 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=156&amp;name=M100-06+%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0
+%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%AA%E0%B8%B3%E0%B
+8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9E%E0%B8%B7%E0%B8%8A%E0%B8%8A%E0%B8%99%E0%B8%B
+4%E0%B8%94%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94+%E0%B8%AA%E0%B8%B9%E0%B8%95%
+E0%B8%A3+2&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom"
+product-id="156" data-bs-original-title="M100-06
+อาหารเสริมสําหรับพืชชนิดเกล็ด สูตร 2">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/156/66b38ff48b179.png)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+อาหารเสริมสําหรับพืชชนิดเกล็ด สูตร <div class="product-name">M100-06 2</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 1,190</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-td d-none"><span>7.06 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=155&amp;name=M100-05+%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0
+%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%AA%E0%B8%B3%E0%B
+8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9E%E0%B8%B7%E0%B8%8A%E0%B8%8A%E0%B8%99%E0%B8%B
+4%E0%B8%94%E0%B9%80%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%94+%E0%B8%AA%E0%B8%B9%E0%B8%95%
+E0%B8%A3+1&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom"
+product-id="155" data-bs-original-title="M100-05
+อาหารเสริมสําหรับพืชชนิดเกล็ด สูตร 1">
+1593 1594 1595 1596 1597 1598 1599 1600 1601 1602 1603 1604 1605 1606 1607 1608 1609 1610 1611
+1612 1613 1614 1615 1616 1617 1618 1619 1620 1621 1622 1623 1624 1625 1626 1627 1628 1629 1630 1631 1632 1633 1634 1635
+1636 1637 1638 1639 1640 1641 1642 1643 1644 1645 1646 1647 1648 1649 1650 1651 1652 1653 <div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/155/66b38e3c8563e.png)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+อาหารเสริมสําหรับพืชชนิดเกล็ด สูตร <div class="product-name">M100-05 1</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 1,190</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-td d-none"><span>7.06 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=154&amp;name=M100-05+%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0
+%B8%B2%E0%B8%A3%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%AA%E0%B8%B3%E0%B
+8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9E%E0%B8%B7%E0%B8%8A%E0%B8%8A%E0%B8%99%E0%B8%B
+4%E0%B8%94%E0%B8%99%E0%B9%89%E0%B8%B3&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="154" data-bs-original-title="M100-05
+อาหารเสริมสําหรับพืชชนิดนํา">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/154/66b38db90975f.png)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+1654 </div>
+1655 </div>
+1656 <div class="box-icon-product">
+1657 <div class="dis-item justify-content-end box-like">
+1658 <div class="back-inline icon-box">
+1659
+1660 </div>
+1661 </div>
+1662 </div>
+1663 </div>
+1664 </div>
+1665 อาหารเสริมสําหรับพืชชนิดนํา</ <div class="product-name">M100-05 div>
+1666 <div class="row new_coin">
+1667 <div class="col-12">
+1668 <div class="price prices-box mt-1">
+1669 ฿ <span class="price"> 1,290</span>
+1670 <span class="original-price d-none"></span>
+1671 </div>
+1672 <div class="progress d-none">
+1673 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1674 <span class="progress-text"></span>
+1675 </div>
+1676 </div>
+1677 </div>
+1678 <div class="product-rating d-flex justify-content-between">
+1679 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+1680 <div class="cart-shop-box">
+1681 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1682 </div>
+1683
+1684 <div class="coin-td d-none"><span>15.29 MV</span> </div>
+1685 </div>
+1686 <div class="sell-unit"><span></span></div>
+1687 </div>
+1688 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=152&amp;name=M100-03+%E0%B8%99%E0%B9%89%E0%B8%B3%E0%
+B8%A1%E0%B8%B1%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%94%E0%B8%B3%E0%B8%AA%E0%B8%81%E0%B8%
+B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%99+%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%9C
+%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E0%B9%80%E0
+%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B
+8%96%E0%B8%B1%E0%B9%88%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%9C%E0%B8%A
+A%E0%B8%A1%E0%B8%8B%E0%B8%B4%E0%B8%87%E0%B8%84%E0%B9%8C&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="152"
+data-bs-original-title="M100-03
+นํามันงาดําสกัดเย็น และผลิตภัณฑ์เสริมอาหารถังเช่าผสมซิงค์">
+1689 <div class="product col border-product">
+1690 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1691 <div class="box-img-product">
+1692 <div class="product-image">
+1693 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/152/66b38aa31cbed.png)"></div>
+1694 </div>
+1695 <div class="box-discount d-none">
+1696 <div class="dis-item justify-content-start box-dis">
+1697 <div class="back-inline back-color back-size">
+1698 <div class="dis-text">
+1699 <span class="text-percent"></span>
+1700 </div>
+1701 </div>
+1702 </div>
+1703 </div>
+1704 <div class="box-icon-product">
+1705 <div class="dis-item justify-content-end box-like">
+1706 <div class="back-inline icon-box">
+1707
+1708 </div>
+1709 </div>
+1710 </div>
+1711 </div>
+1712 </div>
+1713 นํามันงาดําสกัดเย็น และผลิตภัณฑ์เสริมอาหารถังเช่าผสมซิงค์</ <div class="product-name">M100-03 div>
+1714 <div class="row new_coin">
+1715 <div class="col-12">
+1716 <div class="price prices-box mt-1">
+1717 ฿ <span class="price"> 1,490</span>
+1718 <span class="original-price d-none"></span>
+1719 </div>
+1720 <div class="progress d-none">
+1721 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1722 <span class="progress-text"></span>
+1723 </div>
+1724 </div>
+1725 </div>
+1726 <div class="product-rating d-flex justify-content-between">
+1727 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+1728 <div class="cart-shop-box">
+1729 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1730 </div>
+1731
+1732 <div class="coin-td d-none"><span>34.12 MV</span> </div>
+1733 </div>
+1734 <div class="sell-unit"><span></span></div>
+1735 </div>
+1736 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=151&amp;name=M100-02+%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%
+B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%
+B4%E0%B8%A1%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%96%E0%B8%B1%E0%B9%88
+%E0%B8%87%E0%B9%80%E0%B8%8A%E0%B9%88%E0%B8%B2%E0%B8%9C%E0%B8%AA%E0%B8%A1%E0%B8%8B%E0
+%B8%B4%E0%B8%87%E0%B8%84%E0%B9%8C&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="151" data-bs-original-title="M100-02
+ผลิตภัณฑ์เสริมอาหารถังเช่าผสมซิงค์">
+1737 <div class="product col border-product">
+1738 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1739 <div class="box-img-product">
+1740 <div class="product-image">
+1741 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/151/66b38804d4b72.png)"></div>
+1742 </div>
+1743 <div class="box-discount d-none">
+1744 <div class="dis-item justify-content-start box-dis">
+1745 <div class="back-inline back-color back-size">
+1746 <div class="dis-text">
+1747 <span class="text-percent"></span>
+1748 </div>
+1749 </div>
+1750 </div>
+1751 </div>
+1752 <div class="box-icon-product">
+1753 <div class="dis-item justify-content-end box-like">
+1754 <div class="back-inline icon-box">
+1755
+1756 </div>
+1757 </div>
+1758 </div>
+1759 </div>
+1760 </div>
+1761 ผลิตภัณฑ์เสริมอาหารถังเช่าผสมซิงค์</ <div class="product-name">M100-02 div>
+1762 <div class="row new_coin">
+1763 <div class="col-12">
+1764 <div class="price prices-box mt-1">
+1765 ฿ <span class="price"> 1,390</span>
+1766 <span class="original-price d-none"></span>
+1767 </div>
+1768 <div class="progress d-none">
+1769 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1770 <span class="progress-text"></span>
+1771 </div>
+1772 </div>
+1773 </div>
+1774 <div class="product-rating d-flex justify-content-between">
+1775 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+1776 <div class="cart-shop-box">
+1777 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1778 </div>
+1779
+1780 <div class="coin-td d-none"><span>22.35 MV</span> </div>
+1781 </div>
+1782 <div class="sell-unit"><span></span></div>
+1783 </div>
+1784 </a></div>
+1785 </div>
+1786 </div>
+1787 </div>
+1788 </div>
+1789
+1790 <div class="container mt-3 mb-3 normal-hide">
+1791 <div class="row justify-content-center product-new">
+1792 <div class="shop-store-row align-items-center justify-content-between row col-12 p-0 ">
+1793 <div class="shop-store d-flex justify-content-between col-12">
+1794 สินค้าทัวไป</ <div class="shop"> div>
+1795 <div class="shop-store-all shop-store-all-new">
+1796 ดูทังหมด
+<a href="https://รอระบบ domain เสร็จ.com/user/product/search?type=normal" class="view-all-link"> &gt;</a>
+1797 </div>
+1798 </div>
+1799 <div class="show-spinner-normal text-center p-1"></div>
+1800 <div class="item-product-row col-12 justify-content-center normal-hide d-flex p-0">
+1801
+1802 <div class="product-item box-product-normal row flex-wrap col-12 row-cols-2 row-cols-sm-2 row-cols-md-4
+row-cols-lg-5 g-3" id="boxProductNormal">
+1803 <a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=135&amp;name=%E0%B8%84%E0%B8%A3%E0%B8%B5%
+E0%B8%A1%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%81%E0%B8%94%E0%B8%94+DR.O+ANTI-AGING
++%26+BRIGHTENING+SUN+SERUM+SPF50%2B+PA%2B%2B%2B%2B+20g.&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="135"
+ครีมกันแดด data-bs-original-title=" DR.O ANTI-AGING &amp; BRIGHTENING SUN SERUM SPF50+ PA++++ 20g.">
+1804 <div class="product col border-product">
+1805 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1806 <div class="box-img-product">
+1807 <div class="product-image">
+1808 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/135/667fa9c5ca548.jpeg)"></div>
+1809 </div>
+1810 <div class="box-discount d-none">
+1811 <div class="dis-item justify-content-start box-dis">
+1812 <div class="back-inline back-color back-size">
+1813 <div class="dis-text">
+1814 <span class="text-percent"></span>
+1815 </div>
+1816 </div>
+1817 </div>
+1818 </div>
+1819 <div class="box-icon-product">
+1820 <div class="dis-item justify-content-end box-like">
+1821 <div class="back-inline icon-box">
+1822
+1823 </div>
+1824 </div>
+1825 </div>
+1826 </div>
+1827 </div>
+1828 ครีมกันแดด <div class="product-name"> DR.O ANTI-AGING &amp; BRIGHTENING SUN SERUM SPF50+ PA++++ 20g.</div>
+1829 <div class="row new_coin">
+1830 <div class="col-12">
+1831 <div class="price prices-box mt-1">
+1832 ฿ <span class="price"> 199</span>
+1833 <span class="original-price d-none"></span>
+1834 </div>
+1835 <div class="progress d-none">
+1836 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1837 <span class="progress-text"></span>
+1838 </div>
+1839 </div>
+1840 </div>
+1841 <div class="product-rating d-flex justify-content-between">
+1842 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(3)</div></div>
+1843 <div class="cart-shop-box">
+1844 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1845 </div>
+1846
+1847 <div class="coin-td d-none"><span>21.18 MV</span> </div>
+1848 </div>
+1849 <div class="sell-unit"><span></span></div>
+1850 </div>
+1851 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=49&amp;name=IDM0052+%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B
+8%9B%E0%B8%A5%E0%B8%B2%E0%B8%AB%E0%B8%A7%E0%B8%B2%E0%B8%99+%E0%B8%AA%E0%B8%B9%E0%B8%
+95%E0%B8%A3%E0%B8%9E%E0%B8%B4%E0%B9%80%E0%B8%A8%E0%B8%A9+225+g.&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="49"
+นําปลาหวาน สูตรพิเศษ 225 data-bs-original-title="IDM0052 g.">
+1852 <div class="product col border-product">
+1853 <div class="border-images-fix box-img-product product-soldout-text" data-message="
+สินค้าหมด">
+1854 <div class="box-img-product">
+1855 <div class="product-image product-soldout-bg">
+1856 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/49/6674f3651f051.png)"></div>
+1857 </div>
+1858 <div class="box-discount d-none">
+1859 <div class="dis-item justify-content-start box-dis">
+1860 <div class="back-inline back-color back-size">
+1861 <div class="dis-text">
+1862 <span class="text-percent"></span>
+1863 </div>
+1864 </div>
+1865 </div>
+1866 </div>
+1867 <div class="box-icon-product">
+1868 <div class="dis-item justify-content-end box-like">
+1869 <div class="back-inline icon-box">
+1870
+1871 </div>
+1872 </div>
+1873 </div>
+1874 </div>
+1875 </div>
+1876 นําปลาหวาน สูตรพิเศษ 225 <div class="product-name">IDM0052 g.</div>
+1877 <div class="row new_coin">
+1878 <div class="col-12">
+1879 <div class="price prices-box mt-1">
+1880 ฿ <span class="price"> 69</span>
+1881 <span class="original-price d-none"></span>
+1882 </div>
+1883 <div class="progress d-none">
+1884 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1885 <span class="progress-text"></span>
+1886 </div>
+1887 </div>
+1888 </div>
+1889 <div class="product-rating d-flex justify-content-between">
+1890 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+1891 <div class="cart-shop-box">
+1892 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1893 </div>
+1894 <div class="coin-pv mb-1 d-none">1.00 PV</div>
+1895 <div class="coin-td d-none"><span>1.06 MV</span> </div>
+1896 </div>
+1897 <div class="sell-unit"><span></span></div>
+1898 </div>
+1899 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=150&amp;name=M100-01+%E0%B8%99%E0%B9%89%E0%B8%B3%E0%
+B8%A1%E0%B8%B1%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%94%E0%B8%B3%E0%B8%AA%E0%B8%81%E0%B8%
+B1%E0%B8%94%E0%B9%80%E0%B8%A2%E0%B9%87%E0%B8%99&amp;affiliate=" class="delete-product-favorites"
+data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="150" data-bs-original-title="M100-01
+นํามันงาดําสกัดเย็น">
+1900 <div class="product col border-product">
+1901 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1902 <div class="box-img-product">
+1903 <div class="product-image">
+1904 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/150/66b35fcc58076.png)"></div>
+1905 </div>
+1906 <div class="box-discount d-none">
+1907 <div class="dis-item justify-content-start box-dis">
+1908 <div class="back-inline back-color back-size">
+1909 <div class="dis-text">
+1910 <span class="text-percent"></span>
+1911 </div>
+1912 </div>
+1913 </div>
+1914 </div>
+1915 <div class="box-icon-product">
+1916 <div class="dis-item justify-content-end box-like">
+1917 <div class="back-inline icon-box">
+1918
+1919 </div>
+1920 </div>
+1921 </div>
+1922 </div>
+1923 </div>
+1924 นํามันงาดําสกัดเย็น</ <div class="product-name">M100-01 div>
+1925 <div class="row new_coin">
+1926 <div class="col-12">
+1927 <div class="price prices-box mt-1">
+1928 ฿ <span class="price"> 1,390</span>
+1929 <span class="original-price d-none"></span>
+1930 </div>
+1931 <div class="progress d-none">
+1932 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+1933 <span class="progress-text"></span>
+1934 </div>
+1935 </div>
+1936 </div>
+1937 <div class="product-rating d-flex justify-content-between">
+1938 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count">(1)</div></div>
+1939 <div class="cart-shop-box">
+1940 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+1941 </div>
+1942
+1943 <div class="coin-td d-none"><span>18.35 MV</span> </div>
+1944 </div>
+1945 <div class="sell-unit"><span></span></div>
+1946 </div>
+1947 </a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=158&amp;name=P6000+Seller+M-2+SKU&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="158" data-bs-original-title="P6000
+Seller M-2 SKU">
+1948 <div class="product col border-product">
+1949 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+1950 <div class="box-img-product">
+1951 <div class="product-image">
+1952 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/158/66b5cdbb9595f.jpeg)"></div>
+1953 </div>
+1954 1955 1956 1957 1958 1959 1960 1961 1962 1963 1964 1965 1966
+1967 1968 1969 1970 1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014
+2015 2016 2017 2018 <div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">P6000 Seller M-2 SKU</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 80,000</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">6,000.00 PV</div>
+<div class="coin-td d-none"><span>7,058.82 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=157&amp;name=P5000+Seller+S-1+SKU&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="157" data-bs-original-title="P5000
+Seller S-1 SKU">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/157/66b5cc59948fa.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+2019 </div>
+2020 <div class="product-name">P5000 Seller S-1 SKU</div>
+2021 <div class="row new_coin">
+2022 <div class="col-12">
+2023 <div class="price prices-box mt-1">
+2024 ฿ <span class="price"> 60,000</span>
+2025 <span class="original-price d-none"></span>
+2026 </div>
+2027 <div class="progress d-none">
+2028 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+2029 <span class="progress-text"></span>
+2030 </div>
+2031 </div>
+2032 </div>
+2033 <div class="product-rating d-flex justify-content-between">
+2034 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+2035 <div class="cart-shop-box">
+2036 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+2037 </div>
+2038 <div class="coin-pv mb-1 d-none">5,000.00 PV</div>
+2039 <div class="coin-td d-none"><span>5,882.35 MV</span> </div>
+2040 </div>
+2041 <div class="sell-unit"><span></span></div>
+2042 </div>
+2043 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=4&amp;name=Cable+3+in+1+1M+%28RC-124th%2CBlack%29+-+%E0%B8
+%AA%E0%B8%B2%E0%B8%A2%E0%B8%8A%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%88+REMAX&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="4" data-bs-original-title="Cable 3
+สายชาร์จ in 1 1M (RC-124th,Black) - REMAX">
+2044 <div class="product col border-product">
+2045 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+2046 <div class="box-img-product">
+2047 <div class="product-image">
+2048 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/4/66682b62e4d0e.jpeg)"></div>
+2049 </div>
+2050 <div class="box-discount d-none">
+2051 <div class="dis-item justify-content-start box-dis">
+2052 <div class="back-inline back-color back-size">
+2053 <div class="dis-text">
+2054 <span class="text-percent"></span>
+2055 </div>
+2056 </div>
+2057 </div>
+2058 </div>
+2059 <div class="box-icon-product">
+2060 <div class="dis-item justify-content-end box-like">
+2061 <div class="back-inline icon-box">
+2062
+2063 </div>
+2064 </div>
+2065 </div>
+2066 </div>
+2067 </div>
+2068 <div class="product-name">Cable 3 in 1 1M (RC-124th,Black) - สายชาร์จ
+REMAX</div>
+2069 <div class="row new_coin">
+2070 <div class="col-12">
+2071 <div class="price prices-box mt-1">
+2072 ฿ <span class="price"> 299</span>
+2073 <span class="original-price d-none"></span>
+2074 </div>
+2075 <div class="progress d-none">
+2076 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+2077 <span class="progress-text"></span>
+2078 </div>
+2079 </div>
+2080 </div>
+2081 <div class="product-rating d-flex justify-content-between">
+2082 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+2083 <div class="cart-shop-box">
+2084 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+2085 </div>
+2086 <div class="coin-pv mb-1 d-none">1.00 PV</div>
+2087 <div class="coin-td d-none"><span>23.41 MV</span> </div>
+2088 </div>
+2089 <div class="sell-unit"><span></span></div>
+2090 </div>
+2091 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=161&amp;name=%E0%B9%81%E0%B8%9E%E0%B9%87%E0%B8%84+S
+++DR.O+Skincare+500+PV&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom"
+แพ็ค product-id="161" data-bs-original-title=" S DR.O Skincare 500 PV">
+2092 <div class="product col border-product">
+2093 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+2094 <div class="box-img-product">
+2095 <div class="product-image">
+2096 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/161/67692a6c87df6.jpeg)"></div>
+2097 </div>
+2098 <div class="box-discount d-none">
+2099 <div class="dis-item justify-content-start box-dis">
+2100 <div class="back-inline back-color back-size">
+2101 <div class="dis-text">
+2102 <span class="text-percent"></span>
+2103 </div>
+2104 </div>
+2105 </div>
+2106 </div>
+2107 <div class="box-icon-product">
+2108 <div class="dis-item justify-content-end box-like">
+2109 <div class="back-inline icon-box">
+2110
+2111 </div>
+2112 </div>
+2113 </div>
+2114 </div>
+2115 </div>
+2116 แพ็ค <div class="product-name"> S DR.O Skincare 500 PV</div>
+2117 <div class="row new_coin">
+2118 <div class="col-12">
+2119 <div class="price prices-box mt-1">
+2120 ฿ <span class="price"> 3,990</span>
+2121 <span class="original-price d-none"></span>
+2122 </div>
+2123 <div class="progress d-none">
+2124 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+2125 <span class="progress-text"></span>
+2126 </div>
+2127 </div>
+2128 </div>
+2129 <div class="product-rating d-flex justify-content-between">
+2130 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+2131 <div class="cart-shop-box">
+2132 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+2133 </div>
+2134 <div class="coin-pv mb-1 d-none">500.00 PV</div>
+2135 <div class="coin-td d-none"><span>16.24 MV</span> </div>
+2136 </div>
+2137 <div class="sell-unit"><span></span></div>
+2138 </div>
+2139 </a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=147&amp;name=P3000+Creator+L-04+%E0%B8%8A%E0%B8%B8%E0%B
+8%94%E0%B8%94%E0%B8%B9%E0%B9%81%E0%B8%A5%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B
+2%E0%B8%9E%E0%B8%AA%E0%B8%B1%E0%B8%95%E0%B8%A7%E0%B9%8C%E0%B9%80%E0%B8%A5%E0%B8%B5%E
+0%B9%89%E0%B8%A2%E0%B8%87&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="147" data-bs-original-title="P3000 Creator L-04
+ชุดดูแลสุขภาพสัตว์เลียง">
+2140 <div class="product col border-product">
+2141 <div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+2142 <div class="box-img-product">
+2143 <div class="product-image">
+2144 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/147/66b1f2f2eab25.png)"></div>
+2145 </div>
+2146 <div class="box-discount d-none">
+2147 <div class="dis-item justify-content-start box-dis">
+2148 <div class="back-inline back-color back-size">
+2149 <div class="dis-text">
+2150 <span class="text-percent"></span>
+2151 </div>
+2152 </div>
+2153 </div>
+2154 </div>
+2155 <div class="box-icon-product">
+2156 <div class="dis-item justify-content-end box-like">
+2157 <div class="back-inline icon-box">
+2158
+2159 </div>
+2160 </div>
+2161 </div>
+2162 </div>
+2163 </div>
+2164 ชุดดูแลสุขภาพสัตว์เลียง</
+<div class="product-name">P3000 Creator L-04 div>
+2165 <div class="row new_coin">
+2166 <div class="col-12">
+2167 <div class="price prices-box mt-1">
+2168 ฿ <span class="price"> 28,990</span>
+2169 <span class="original-price d-none"></span>
+2170 </div>
+2171 <div class="progress d-none">
+2172 <div class="progress-bar bg-warning" style="width: 100%;"></div>
+2173 <span class="progress-text"></span>
+2174 </div>
+2175 </div>
+2176 </div>
+2177 <div class="product-rating d-flex justify-content-between">
+2178 <div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+2179 <div class="cart-shop-box">
+2180 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+2181 </div>
+2182 <div class="coin-pv mb-1 d-none">3,000.00 PV</div>
+2183 <div class="coin-td d-none"><span>506.47 MV</span> </div>
+2184 </div>
+2185 <div class="sell-unit"><span></span></div>
+2186 </div>
+2187 </a><a href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=58&amp;name=IDM0035+GREEN+TEA....&amp;affiliate="
+class="delete-product-favorites" data-bs-toggle="tooltip" data-bs-placement="bottom" product-id="58"
+data-bs-original-title="IDM0035 GREEN TEA....">
+2188 <div class="product col border-product">
+2189 <div class="border-images-fix box-img-product product-soldout-text" data-message="
+สินค้าหมด">
+2190 <div class="box-img-product">
+2191 <div class="product-image product-soldout-bg">
+2192 <div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/58/6674f75721773.jpeg)"></div>
+2193 </div>
+2194 <div class="box-discount d-none">
+2195 <div class="dis-item justify-content-start box-dis">
+2196 <div class="back-inline back-color back-size">
+2197 <div class="dis-text">
+2198 <span class="text-percent"></span>
+2199 </div>
+2200 </div>
+2201 </div>
+2202 </div>
+2203 2204 2205 2206
+2207 2208 2209 2210 2211 2212 2213 2214 2215 2216 2217 2218 2219 2220 2221 2222 2223 2224 2225 2226 2227 2228 2229 2230 2231 2232 2233 2234 2235 2236 2237 2238 2239 2240 2241 2242 2243 2244 2245 2246 2247 2248 2249 2250 2251 2252 2253 2254
+2255 2256 2257 2258 2259 2260 2261 2262 2263 2264 2265 <div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">IDM0035 GREEN TEA....</div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 399</span>
+<span class="original-price d-none"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">25.00 PV</div>
+<div class="coin-td d-none"><span>35.18 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a><a
+href="https://รอระบบ domain เสร็จ.com/product-detail?product_id=146&amp;name=P2000+Creator+L-03+%E0%B8%8A%E0%B8%B8%E0%B
+8%94%E0%B8%9A%E0%B8%B3%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B8%9C%E0%B8%B4%E0%B8%A7%E0%B8%A
+B%E0%B8%99%E0%B9%89%E0%B8%B2&amp;affiliate=" class="delete-product-favorites" data-bs-toggle="tooltip"
+data-bs-placement="bottom" product-id="146" data-bs-original-title="P2000 Creator L-03
+ชุดบํารุงผิวหน้า">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back" style="background-image:
+url(https://assets.รอระบบ domain เสร็จ.com/public/images/products/663417260/146/66b1f03d747ad.jpeg)"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name">P2000 Creator L-03 div>
+ชุดบํารุงผิวหน้า</
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+฿ <span class="price"> 21,990</span>
+<span class="original-price d-none"></span>
+2266 2267 2268 2269 2270 2271 2272 2273 2274 2275 2276 2277 2278 2279 2280 2281 2282 2283 2284 2285 2286 2287 2288 2289 2290 2291 2292 2293 2294 2295 2296 2297 2298 2299 2300 2301 2302 2303 2304 2305 2306 2307 2308 2309 2310
+2311 2312 2313 2314 2315 2316 2317 2318 2319 2320 2321 2322 2323 2324 2325 2326 2327 2328 2329 2330 2331 2332 2333 </div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating"><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star "></i><i class="fa fa-star
+"></i><i class="fa fa-star "></i><div class="review-count"></div></div>
+<div class="cart-shop-box">
+<img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+</div>
+<div class="coin-pv mb-1 d-none">2,000.00 PV</div>
+<div class="coin-td d-none"><span>547.53 MV</span> </div>
+</div>
+<div class="sell-unit"><span></span></div>
+</div>
+</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="spinner-product text-center"></div>
+<a href="#" class="d-none clone_product_box" id="boxProduct" data-bs-toggle="tooltip" data-bs-placement="bottom">
+<div class="product col border-product">
+<div class="border-images-fix box-img-product" data-message="
+สินค้าหมด">
+<div class="box-img-product">
+<div class="product-image">
+<div class="product-imgback img-back"></div>
+</div>
+<div class="box-discount d-none">
+<div class="dis-item justify-content-start box-dis">
+<div class="back-inline back-color back-size">
+<div class="dis-text">
+<span class="text-percent"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="box-icon-product">
+<div class="dis-item justify-content-end box-like">
+<div class="back-inline icon-box">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="product-name"></div>
+<div class="row new_coin">
+<div class="col-12">
+<div class="price prices-box mt-1">
+<span class="price"></span>
+<span class="original-price"></span>
+</div>
+<div class="progress d-none">
+<div class="progress-bar bg-warning" style="width: 100%;"></div>
+<span class="progress-text"></span>
+</div>
+</div>
+</div>
+<div class="product-rating d-flex justify-content-between">
+<div class="star-rating">
+<i class="fa fa-star"></i>
+<div class="review-count"></div>
+</div>
+2334 <div class="cart-shop-box">
+2335 <img class="icon-cart-shop" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon-shop-cart-01.svg?v1.0"
+alt="logo-zelect">
+2336 </div>
+2337 <div class="coin-pv mb-1 d-none"><span></span> </div>
+2338 <div class="coin-td d-none"><span></span> </div>
+2339 </div>
+2340 <div class="sell-unit"><span></span></div>
+2341 </div>
+2342 </a>
+2343 <div class="item-product-row col-12 mt-3 mb-4 justify-content-center d-flex p-0">
+2344 <div class="product-item row flex-wrap col-12 row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-xl-5 g-3 d-none"
+id="showProduct">
+2345
+2346 </div>
+2347 </div>
+2348 <div id="paginationBox"></div>
+2349
+2350 <div class="box-not-found col-12 mt-3 mb-4 justify-content-center p-0 d-none">
+2351 <div class="text-center search-plus-icon mb-2"><i class="fas fa-search-plus"></i></div>
+2352 ไม่พบข้อมูลทีตรงกับคําค้นหา <div class="text-center mb-2"> </div>
+2353 <div class="text-center mb-2">or</div>
+2354 <div class="text-center">
+2355 รีเซ็ตตัวกรองการค้นหา</ <button class="btn btn-reset btn-md"> button>
+2356 </div>
+2357 </div>
+2358 </div>
+2359 </div>
+2360
+2361
+2362 <section id="nav-main-foot">
+2363 <footer class="footer mt-auto footer-main text-center">
+2364 <div class="container d-flex justify-content-center">
+2365 <div class="col-12 p-2">
+2366 <div class="row justify-content-center">
+2367 <div class="footer-con col-md-12 col-lg-12 col-sm-12 text-center">
+2368 <div class="row">
+2369 <div class="col-md-3 logo-foot col-lg-2 col-sm-12 p-3 p-md-1">
+2370 <img class="img-logo"
+src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/zelect_logo_vertical-01.svg?v1.0" alt="logo-zelect">
+2371 </div>
+2372 <div class="col-md-8 col-lg-9 col-sm-12 box-contact-text d-flex">
+2373 <div class="col-12 col-md-4 p-3 p-md-1 foot-text-box menu-footer-mb">
+2374 <div class="footer-text"><a
+เข้าสู่ระบบ</ href="https://รอระบบ domain เสร็จ.com/user/login"> a></div>
+2375
+2376 </div>
+2377 <div class="col-12 col-md-4 p-3 p-md-1 foot-text-box">
+2378 <div class="footer-text"><a href="https://รอระบบ domain เสร็จ.com/policies">Policies</a></div>
+2379 <div class="footer-text"><a
+href="https://รอระบบ domain เสร็จ.com/prohibited-product-policy"> a></div>
+นโยบายของต้องห้ามและของทีถูกจํากัด</
+2380 <div class="footer-text"><a href="https://รอระบบ domain เสร็จ.com/privacy-policy">Privacy Policy</a></div>
+2381 </div>
+2382 <div class="col-12 col-md-4 p-3 p-md-1 foot-text-box foot-text-boder">
+2383 <div class="footer-text"><a
+href="https://รอระบบ domain เสร็จ.com/product-returns-refunds"> a></div>
+การคืนเงิน/คืนสินค้า</
+2384 <div class="footer-text manual-mobile"><a href="https://รอระบบ domain เสร็จ.com/manual"> a></div>
+คู่มือการใช้งาน</
+2385 </div>
+2386 <div class="col-12 col-md-4 p-3 p-md-1 foot-text-box foot-text-margin text-center text-md-end">
+2387 <div class="footer-text "><p>ALPHA ORGANIC CO.,LTD.<br>The 9th Towers Grand Rama9, Tower
+A,<br> Floor 14th, Unit TNA04,33/4 Rama 9 <br> Rd.,Huai Khwang, Bangkok 10310 </p></div>
+2388 ติดต่อเรา</
+<div class="footer-text "><p> p></div>
+2389 <div class="image-social d-flex justify-content-center justify-content-md-end">
+2390 <a href="https://line.me/R/ti/p/@zelect" target="_blank" rel="noopener noreferrer"><img
+class="img-suppot me-3" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon_line-01.svg?v1.0"
+alt=""></a>
+2391 <a href="mailto:support@alphaorganic.co" target="_blank" rel="noopener noreferrer"><img
+class="img-suppot me-3" src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon_mail-01.svg?v1.0"
+alt=""></a>
+2392 <a href="tel:022481888" target="_blank" rel="noopener noreferrer"><img class="img-suppot"
+src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/icon/icon_phone-01.svg?v1.0" alt=""></a>
+2393 </div>
+2394 <div class="dropdown show-lang-mobile d-none">
+2395 <div class="manual-lang-mobile mt-5 d-flex justify-content-center align-items-center">
+2396 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-th.png?v1.0" class="image-lang"
+alt="">
+2397 ไทย</ <span class="text text-white ms-1"> span>
+2398 <i class="fas fa-chevron-down text-white ms-3 arrow"></i>
+2399 </div>
+2400 <div class="dropdown-menu-mobile d-none mt-2">
+2401
+<div class=" dropdown-item-mobile ">
+2402 <div>
+2403 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-eng.png?v1.0"
+class="image-lang" alt="">
+2404 </div>
+2405 <a href="https://รอระบบ domain เสร็จ.com/greeting/ENG" class="ms-2">ENGLISH</a>
+2406 </div>
+2407
+<div class=" dropdown-item-mobile ">
+2408 <div>
+2409 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-la.png?v1.0"
+class="image-lang" alt="">
+2410 </div>
+2411 ລາວ
+<a href="https://รอระบบ domain เสร็จ.com/greeting/LAO" class="ms-2"> </a>
+2412 </div>
+2413
+<div class=" dropdown-item-mobile ">
+2414 <div>
+2415 <img src="https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/flag-mmr.png?v1.0"
+class="image-lang" alt="">
+2416 </div>
+2417 2418 <a href="https://รอระบบ domain เสร็จ.com/greeting/MMR" class="ms-2"> </a>
+ြမန်မာ
+</div>
+2419 </div>
+2420 </div>
+2421 </div>
+2422 </div>
+2423 </div>
+2424 </div>
+2425 </div>
+2426 </div>
+2427 </div>
+2428 <div class="container d-flex justify-content-center">
+2429 <div class="col-12">
+2430 <div class="row">
+2431 <div class="copyright text-center mt-2 mb-2">© 2024 Zelect. All Rights Reserved</div>
+2432 </div>
+2433 </div>
+2434 </div>
+2435 </footer>
+2436 <style>
+2437 .notification-bar {
+2438 -webkit-box-sizing: border-box;
+2439 box-sizing: border-box;
+2440 bottom: 0;
+2441 left: 0;
+2442 max-width: 512px;
+2443 padding: 30px;
+2444 pointer-events: none;
+2445 position: fixed;
+2446 width: 100%;
+2447 z-index: 5002;
+2448 }
+2449
+2450 .notification-bar-content {
+2451 background-color: #323232;
+2452 border: 4px solid transparent;
+2453 -webkit-box-sizing: border-box;
+2454 box-sizing: border-box;
+2455 -webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+2456 box-shadow: 2px 2px 2px rgba(0,0,0,.2);
+2457 display: -webkit-box;
+2458 display: -webkit-flex;
+2459 display: flex;
+2460 -webkit-align-items: center;
+2461 align-items: center;
+2462 font-size: 14px;
+2463 margin-top: 10px;
+2464 padding: 10px 10px 10px 20px;
+2465 pointer-events: all;
+2466 position: relative;
+2467 -webkit-border-radius: 3px;
+2468 border-radius: 3px;
+2469 -webkit-transform: translateY(5px);
+2470 transform: translateY(5px);
+2471 -webkit-transition: all 0.218s ease-in-out;
+2472 transition: all 0.218s ease-in-out;
+2473 opacity: 0;
+2474 }
+2475 .notification-bar-content.show {
+2476 -webkit-transition: all 0.218s ease-in-out;
+2477 transition: all 0.218s ease-in-out;
+2478 opacity: 1;
+2479 visibility: visible;
+2480 -webkit-transform: translateY(20px);
+2481 transform: translateY(20px);
+2482 }
+2483
+2484 .notification-bar-message {
+2485 margin-right: 10px;
+2486 color: white;
+2487 }
+2488
+2489 .notification-bar-button {
+2490 margin-right: 5px;
+2491 padding: 5px 10px;
+2492 color: #444;
+2493 cursor: pointer;
+2494 border: transparent;
+2495 }
+2496 .undo-button {
+2497 background-color: transparent;
+2498 color: goldenrod;
+2499 }
+2500 .undo-button:hover {
+2501 color: rgb(248, 198, 73);
+2502 }
+2503 .close-button {
+2504 background-color: transparent;
+2505 color: white;
+2506 }
+2507 @keyframes slide-down {
+2508 0% {
+2509 transform: scale(1) translate(0, 0);
+2510 opacity: 1;
+2511 }
+2512 100% {
+2513 transform: scale(0.5) translate(0, 0);
+2514 opacity: 0;
+2515 }
+2516 }
+2517 .close-favalist{
+2518 animation: slide-down 0.2s ease-out;
+2519 opacity: 0;
+2520 }
+2521 </style>
+2522 <section>
+2523
+2524 <div class="notification-bar d-none">
+2525 <div class="notification-bar-content ">
+2526 <span class="notification-bar-message me-auto message-delete span>
+">การแจ้งเตือนถูกลบ</
+2527 ">ยกเลิกแล้ว</
+<span class="notification-bar-message me-auto message-show span>
+2528 <button class="notification-bar-button undo-button button>
+">เลิกทํา</
+2529 <button class="notification-bar-button close-button"><i class="fas fa-times"></i></button>
+2530 </div>
+2531 </div>
+2532 </section> </section>
+2533
+2534 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script>
+2535 <script src="https://รอระบบ domain เสร็จ.com/js/helper.js?v1.066"></script>
+2536 <script src="https://รอระบบ domain เสร็จ.com/js/product.js?v1.050"></script>
+2537 <script src="https://รอระบบ domain เสร็จ.com/js/preload.js?v1.0003"></script>
+2538 <script src="https://รอระบบ domain เสร็จ.com/js/favorites.js?v1.022"></script>
+2539 <script src="https://รอระบบ domain เสร็จ.com/js/oAuth-tiktok.js?v1.001"></script>
+2540 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.9.0/sweetalert2.all.min.js"
+integrity="sha512-LTmGiRLYz7G5Sxr4MMXGaOfia3kGZKGAlXzrSCGc4GBGxymu1RGwhFFGwiOQUm+bJOGlV0AmHd1S7ze
+FlwzkFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+2541 <script>
+2542 let notifyAuth;
+2543 let qtyCart = 0;
+2544
+2545 let screeWidth = window.innerWidth;
+2546 let urlProductDetail = "https://รอระบบ domain เสร็จ.com/product-detail?";
+2547 const urlFavorites = "https://รอระบบ domain เสร็จ.com/user/favorites";
+2548 const _token = document.querySelector('meta[name="csrf-token"]').content;
+2549
+2550 const dataArrayLang = {
+2551 alert:"
+การแจ้งเตือน",
+2552 alertText:"
+ยืนยันการยกเลิกรายการโปรด",
+2553 alertTextConfirm:"
+ยืนยัน",
+2554 alertTextCancel:"
+ยกเลิก"
+2555 }
+2556
+2557 document.addEventListener("DOMContentLoaded", async (event) => {
+2558 await cartShow();
+2559
+2560 // custom menu nav mobile
+2561 if(screeWidth <= 768){
+2562 if(document.querySelector('.d-search-login')){
+2563 document.querySelector('.d-search-login').style.display = 'flex';
+2564 }
+2565 if(document.querySelector('.nav-menu-login')){
+2566 document.querySelector('.nav-menu-login').classList.add('show');
+2567 }
+2568
+2569 if(document.querySelector('.profiles')){
+2570 document.querySelector('.profiles').style.display = 'block';
+2571 }
+2572 if(document.querySelector('.profiles .layout-user')){
+2573 document.querySelector('.profiles .layout-user').classList.add('d-none');
+2574 }
+2575
+2576 }
+2577
+2578 });
+2579 let search_product = document.querySelector(".search-product");
+2580 let search_button = document.querySelector(".search-button");
+2581 const imageNotdata = "https://assets.รอระบบ domain เสร็จ.com/phanlaan/images/manual-no-data.png?v1.0";
+2582 let authUser = "";
+2583 let authSeller = "";
+2584 document.addEventListener("DOMContentLoaded", (event) => {
+2585 // showNotification();
+2586
+2587 if(authUser && authSeller){
+2588 showNotification(0, 3, "user", "all", 0);
+2589 notifyAuth = "user";
+2590 }else if(authSeller){
+2591 showNotification(0, 3, "seller", "all", 0);
+2592 notifyAuth = "seller";
+2593 }else if(authUser){
+2594 showNotification(0, 3, "user", "all", 0);
+2595 notifyAuth = "user";
+2596 }
+2597 let statusResizePc = false;
+2598 let statusResizeMobile = false;
+2599 const handleScroll =()=> {
+2600 if (window.scrollY > 35) {
+2601 document.querySelector('.show-lang-pc .dropdown-menu').classList.remove('show');
+2602 document.getElementById('slide-head-menu').classList.remove('slide-head-menu');
+2603 } else {
+2604 document.getElementById('slide-head-menu').classList.add('slide-head-menu');
+2605 document.querySelector('.nav-head-top.navbar-main').classList.remove('d-none');
+2606 }
+2607 }
+2608 const functionLang = () =>{
+2609 if (window.innerWidth >= 768) {
+2610 document.querySelector('.show-lang-mobile').classList.add('d-none');
+2611 document.querySelector('.show-lang-pc').classList.remove('d-none');
+2612 document.querySelector('.nav-head-top').classList.remove('d-none');
+2613 document.getElementById('slide-head-menu').classList.add('slide-head-menu');
+2614 document.querySelectorAll('.show-lang-mobile.manual-mobile').forEach(element => {
+2615 element.classList.add('d-none');
+2616 });
+2617 const dropdownBtn = document.querySelectorAll('.dropdown-btn,.dropdown-item-head');
+2618 const dropdownMenu = document.querySelector('.show-lang-pc .dropdown-menu');
+2619 if(!statusResizePc){
+2620 dropdownBtn.forEach(element => {
+2621 const arrow = element.querySelector('.dropdown-btn .arrow,.show-lang-pc .arrow');
+2622 element.addEventListener('click', function(event) {
+2623 event.stopPropagation();
+2624 dropdownMenu.classList.toggle('show');
+2625 if (dropdownMenu.classList.contains('show')) {
+2626
+document.querySelector('.show-lang-pc').style="left:"+(event.target.closest('.dropdown-btn').getBoundingCli
+entRect().right+
+window.scrollX)+"px;"+"top:"+(event.target.closest('.dropdown-btn').getBoundingClientRect().top+
+window.scrollY)+"px"
+2627 arrow.classList.add('fa-chevron-down');
+2628 arrow.classList.remove('fa-chevron-up');
+2629 } else {
+2630 document.querySelector('.show-lang-pc').removeAttribute('style');
+2631 arrow.classList.remove('fa-chevron-down');
+2632 arrow.classList.add('fa-chevron-up');
+2633 }
+2634 });
+2635 });
+2636
+2637 document.addEventListener('click', function(event) {
+2638 if (dropdownMenu.classList.contains('show')) {
+2639 document.querySelector('.show-lang-pc').removeAttribute('style');
+2640 dropdownMenu.classList.remove('show');
+2641 }
+2642 });
+2643 statusResizePc = true;
+2644 }
+2645 if (window.scrollY > 35) {
+2646 dropdownMenu.classList.remove('show');
+2647 document.getElementById('slide-head-menu').classList.remove('slide-head-menu');
+2648 }
+2649 window.addEventListener('scroll', handleScroll);
+2650 }else{
+2651 document.querySelector('.show-lang-pc').classList.add('d-none');
+2652 document.querySelector('.show-lang-mobile').classList.remove('d-none');
+2653 document.getElementById('slide-head-menu').classList.remove('slide-head-menu');
+2654 document.querySelector('.nav-head-top').classList.add('d-none');
+2655 if(!statusResizeMobile){
+2656 const dropdownBtn = document.querySelector('.show-lang-mobile .manual-lang-mobile');
+2657 const dropdownMenu = document.querySelector('.show-lang-mobile .dropdown-menu-mobile');
+2658 const arrow = document.querySelector('.show-lang-mobile .arrow');
+2659 dropdownBtn.addEventListener('click', function(event) {
+2660 event.stopPropagation();
+2661 dropdownMenu.classList.toggle('d-none');
+2662 if (dropdownMenu.classList.contains('d-none')) {
+2663 arrow.classList.add('fa-chevron-down');
+2664 arrow.classList.remove('fa-chevron-up');
+2665 } else {
+2666 arrow.classList.remove('fa-chevron-down');
+2667 arrow.classList.add('fa-chevron-up');
+2668 }
+2669 });
+2670 statusResizeMobile = true;
+2671 }
+2672 window.removeEventListener('scroll', handleScroll);
+2673 }
+2674 }
+2675 functionLang();
+2676 window.addEventListener('resize', functionLang);
+2677 });
+2678
+2679
+2680 search_product.addEventListener("keyup", function(event) {
+2681 if (event.key === "Enter") {
+2682 search_data(event.target.value);
+2683 }
+2684 });
+2685
+2686
+2687 search_button.addEventListener("click", function(event) {
+2688 keywordData = event.target.closest('.cut-con-search').querySelector('.search-product').value;
+2689 search_data(keywordData);
+2690 });
+2691
+2692
+2693 search_data = (keywordData) => {
+2694 let url = "https://รอระบบ domain เสร็จ.com/user/product/search?" + new URLSearchParams({keyword:keywordData});
+2695 window.location.href = url;
+2696 }
+2697 cartShow = () => {
+2698 const box_cart_badge = document.querySelector('.box-cart-badge');
+2699 if(box_cart_badge){
+2700 const data = {'type':'qty'};
+2701 fetch("https://รอระบบ domain เสร็จ.com/cart/detail", {
+2702 method: 'POST',
+2703 headers: {'X-CSRF-TOKEN':_token,'Content-Type': 'application/json'},
+2704 body: JSON.stringify(data),
+2705 }).then(response => {
+2706 if(!response.ok) {
+2707 return Promise.reject(response);
+2708 }
+2709 return response.json();
+2710 }).then(result => {
+2711 if(result.status == "success" && result.data.qty){
+2712 if(box_cart_badge.classList.contains('d-none')){
+2713 box_cart_badge.classList.remove('d-none');
+2714 }
+2715 box_cart_badge.querySelector('span').innerHTML = result.data.qty;
+2716
+2717 if(screeWidth <= 768){
+2718 let qtyCart = result.data.qty;
+2719 if(qtyCart > 9){
+2720 qtyCart = "9+";
+2721 }
+2722 BoxCartMB.innerHTML = qtyCart;
+2723 BoxCartMB.classList.remove('d-none');
+2724 }
+2725 }
+2726 }).catch((error) => {
+2727 if(!box_cart_badge.classList.contains('d-none')){
+2728 box_cart_badge.classList.add('d-none');
+2729 }
+2730 });
+2731 }
+2732 };
+2733
+2734 popupComingSoon = () =>{
+2735 Swal.fire({
+2736 title: "",
+2737 icon: "info",
+2738 title:"Coming Soon...",
+2739 confirmButtonColor: "#ED1E79",
+2740 });
+2741 }
+2742
+2743 const tooltipList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+2744 const tooltips = [...tooltipList].map(el => new bootstrap.Tooltip(el));
+2745
+2746 updateTooltip = (element, title) => {
+2747 const tooltipInstance = bootstrap.Tooltip.getInstance(element);
+2748
+2749 if (!tooltipInstance) {
+2750 new bootstrap.Tooltip(element);
+2751 }
+2752
+2753 const updatedInstance = bootstrap.Tooltip.getInstance(element);
+2754
+2755 if (updatedInstance) {
+2756 updatedInstance._config.title = title;
+2757 updatedInstance.update();
+2758 }
+2759 };
+2760
+2761 const preloader = function () {
+2762 setTimeout(function () {
+2763 $(".preload").fadeOut("slow", function () {
+2764 $(this).remove();
+2765 });
+2766 }, 100);
+2767 };
+2768
+2769 </script>
+2770 <script>
+2771
+2772
+2773 let arrayLandningPage = {
+2774 'status':{'statusShops' : false,'statusProductsAll' : false,'statusCategory' : false},
+2775 'mv' : {'class':'d-none'},
+2776 'product':{
+2777 'hot' : {'parameter' : {'type': 'hot','path': 'product'},'name':"hot-check" ,'spinner':"show-spinner-product-hot",'statusProducts' :
+false,'closeBoxProduct' : "boxProductHot",},
+2778 'new' :{'parameter' : {'type': 'new','path': 'product'},'name':"product-new" ,'spinner':"show-spinner-product-new",'statusProducts'
+: false,'closeBoxProduct' : "boxProductNew",},
+2779 'normal' :{'parameter' : {'type': 'normal','path': 'product'},'name':"normal-hide" ,'spinner':"show-spinner-normal",'statusProducts'
+: false,'closeBoxProduct' : "boxProductNormal",},
+2780 'flash_sale' :{'parameter' : {'type': 'flash_sale','path': 'product'},'name':"flash-sale-hide"
+,'spinner':"show-spinner-flashsalle",'statusProducts' : false,'closeBoxProduct' : "boxProductFlashSale",},
+2781 'best_seller' :{'parameter' : {'type': 'best_seller','path': 'product'},'name':"best-seller"
+,'spinner':"show-spinner-product-best",'statusProducts' : false,'closeBoxProduct' : "boxProductBestSeller",},
+2782 'super_sale' :{'parameter' : {'type': 'super_sale','path': 'product'},'name':"supersale-hide"
+,'spinner':"show-spinner-supersale",'statusProducts' : false,'closeBoxProduct' : "boxProductSupersale",}
+2783 },
+2784 'categories':{
+2785 'best_categories':{'spinner':"spinner-category-best",'name':"boxCateDetail"},
+2786 'categories':{'spinner':"show-spinner-cate",'name':"hideCategoryAll"}
+2787 },
+2788 'banners':{
+2789 'banner_paralax':{'spinner':"spanner-banner-s",'name':"img-banners",'closeBoxProduct' : "imgBanners"},
+2790 'banner_fix':{'spinner':"spinner-banner",'name':"sale-banner",'closeBoxProduct' : "boxImgBannerOut"}
+2791 }
+2792 };
+2793
+2794 setTooltipForLandingPage();
+2795
+2796 affiliate = async () =>{
+2797 return new Promise(resolve => {
+2798 spinnerLoading('show-spinner-category-Affiliate',"open");
+2799 fetch("https://รอระบบ domain เสร็จ.com/user/get-affiliate-secret-login")
+2800 .then(response => {
+2801 if (!response.ok) {
+2802 throw new Error('HTTP error! Status: '+response.status+'');
+2803 }
+2804 return response.json();
+2805 })
+2806 .then(data => {
+2807 if(data["status"]){
+2808 data.data.forEach((value, index) => {
+2809 const boxCategoryAffiliate = document.querySelector('.box__category-Affiliate').cloneNode(true);
+2810 boxCategoryAffiliate.querySelector('.aff_name').innerHTML = value.name;
+2811 boxCategoryAffiliate.querySelector('.aff_detail').innerHTML = value.detail;
+2812 boxCategoryAffiliate.classList.remove('d-none','box__category-Affiliate');
+2813 boxCategoryAffiliate.querySelector('.aff_img').style.backgroundImage = `url('${value.image_url}')`;
+2814 const type = value.type;
+2815 const linkPage = value.link_page;
+2816 boxCategoryAffiliate.querySelector('.btn-affiliate').addEventListener("click", async (event) => {
+2817 window.open('https://www.phanlaan.com', '_blank');
+2818 })
+2819 document.querySelector('.close__category-Affiliate').appendChild(boxCategoryAffiliate);
+2820 spinnerLoading('show-spinner-category-Affiliate',"close");
+2821 document.querySelector('.close__category-Affiliate').classList.remove('d-none');
+2822 });
+2823 resolve();
+2824 }else{
+2825 document.querySelector('.hide-category-Affiliate').remove();
+2826 spinnerLoading('show-spinner-category-Affiliate',"close");
+2827 resolve();
+2828 }
+2829 })
+2830 })
+2831 }
+2832
+2833 products = async (type)=>{
+2834 return new Promise(resolve => {
+2835 spinnerLoading(arrayLandningPage['product'][type]['spinner'],"open");
+2836 fetch("https://รอระบบ domain เสร็จ.com/user/landingPage?"+ new URLSearchParams(arrayLandningPage['product'][type]['parameter']))
+2837 .then(response => {
+2838 if (!response.ok) {
+2839 throw new Error('HTTP error! Status: '+response.status+'');
+2840 }
+2841 return response.json();
+2842 })
+2843 .then(data => {
+2844 if(data["status"]){
+2845 if(data.data.checkStatus === "on"){
+2846 productShow(data.data,"landdingPage",arrayLandningPage['product'][type]['closeBoxProduct'],type);
+2847 spinnerLoading(arrayLandningPage['product'][type]['spinner'],"close");
+2848 if(type === "normal") {
+2849 let bannerImgCheck = document.querySelector('#boxImgBannerOut img');
+2850 if(bannerImgCheck.hasAttribute('hide-banner')){
+2851 document.querySelector('.normal-check').classList.remove('d-none');
+2852 }
+2853 }
+2854 resolve();
+2855 }else{
+2856 document.querySelectorAll('.'+arrayLandningPage['product'][type]['name']).forEach((valueDelete, index) => {
+2857 valueDelete.remove();
+2858 });
+2859 document.querySelectorAll('.'+arrayLandningPage['product'][type]['spinner']).forEach((spinnerDelete, index) => {
+2860 spinnerDelete.remove();
+2861 });
+2862 resolve();
+2863 }
+2864 }else{
+2865 spinnerLoading(arrayLandningPage['product'][type]['spinner'],"close");
+2866 document.querySelector('#'+arrayLandningPage['product'][type]['closeBoxProduct']).style = 'justify-content:center
+!important';
+2867 document.querySelector('#'+arrayLandningPage['product'][type]['closeBoxProduct']).innerHTML = "<div
+class='text-center'><img class='nodata-icon' src='"+imageNotdata+"'></div>";
+2868 resolve();
+2869 }
+2870 }).then(data => {
+2871 updateOrSetTooltipForLandingPage();
+2872 showPage();
+2873 })
+2874 });
+2875 };
+2876
+2877 banners = async (type)=>{
+2878 return new Promise(resolve => {
+2879 spinnerLoading(arrayLandningPage['banners'][type]['spinner'],"open");
+2880 fetch("https://รอระบบ domain เสร็จ.com/user/landingPage?"+ new URLSearchParams({type: 'banner',path: 'banner',type_banner: type})
+,)
+2881 .then(response => {
+2882 if (!response.ok) {
+2883 throw new Error('HTTP error! Status: '+response.status+'');
+2884 }
+2885 return response.json();
+2886 })
+2887 .then(data => {
+2888 if(data['status']){
+2889 if(data.data.checkStatus === "on"){
+2890 if(type === "banner_paralax"){
+2891 data.data.banner_paralax.forEach((banner, index) => {
+2892 let clonedImg = imgBanners.children[0].children[0].cloneNode(true);
+2893 clonedImg.setAttribute("data-bs-slide-to", index+1);
+2894 clonedImg.classList.remove("d-none");
+2895 imgBanners.children[0].appendChild(clonedImg);
+2896 let clonedImgBanner = imgBanner.children[0].cloneNode(true);
+2897 clonedImgBanner.querySelector("div.carousel-item img").setAttribute("src", banner+"?v1.0");
+2898 clonedImgBanner.querySelector("div.carousel-item img").setAttribute("id", 'Banners_img_'+(index+1));
+2899 clonedImgBanner.classList.remove("d-none");
+2900 imgBanner.appendChild(clonedImgBanner);
+2901 });
+2902 imgBanners.children[0].lastChild.remove();
+2903 imgBanners.children[0].children[0].classList.add("active");
+2904 imgBanner.querySelector(".d-none").remove();
+2905 imgBanner.children[0].classList.add("active");
+2906 }else if(type === "banner_fix"){
+2907 boxImgBannerOut.querySelector("div#boxImgBannerOut img.icon-img").setAttribute("src",
+data.data.banner_fix+"?v1.0");
+2908 boxImgBannerOut.querySelector("div#boxImgBannerOut img.icon-img").classList.remove('d-none');
+2909 }
+2910 spinnerLoading(arrayLandningPage['banners'][type]['spinner'],"close");
+2911 resolve();
+2912 }else{
+2913 spinnerLoading(arrayLandningPage['banners'][type]['spinner'],"close");
+2914 document.querySelector('.'+arrayLandningPage['banners'][type]['name']).remove();
+2915 resolve();
+2916 }
+2917 }else{
+2918 spinnerLoading(arrayLandningPage['banners'][type]['spinner'],"close");
+2919 document.querySelector('#'+arrayLandningPage['banners'][type]['closeBoxProduct']).style = 'justify-content:center';
+2920 document.querySelector('#'+arrayLandningPage['banners'][type]['closeBoxProduct']).innerHTML = "<div
+class='text-center'><img class='nodata-icon' src='"+imageNotdata+"'></div>";
+2921 resolve();
+2922 }
+2923 })
+2924 });
+2925 }
+2926
+2927 categories = async (type)=>{
+2928 return new Promise(resolve => {
+2929 spinnerLoading(arrayLandningPage['categories'][type]['spinner'],"open");
+2930 fetch("https://รอระบบ domain เสร็จ.com/user/landingPage?"+ new URLSearchParams({type: type,path: 'categories'}) ,)
+2931 .then(response => {
+2932 if (!response.ok) {
+2933 throw new Error('HTTP error! Status: '+response.status+'');
+2934 }
+2935 return response.json();
+2936 })
+2937 .then(data => {
+2938 if(data['status']){
+2939
+2940 let nameCategories = "";
+2941 if(data.data.checkStatus === "on"){
+2942 if(type === "categories"){
+2943 if(data.data.categories.length > 0){
+2944 data.data.categories.forEach((value, index) => {
+2945 let url = "https://รอระบบ domain เสร็จ.com/user/product/search?" + new URLSearchParams({category:value.name_cat});
+2946 let clonedCategories = boxCateDetail.children[0].cloneNode(true);
+2947 clonedCategories.setAttribute("data-bs-title",value.name_cat);
+2948 clonedCategories.querySelector("a").setAttribute("href", url);
+2949 clonedCategories.querySelector("img").setAttribute("alt", value.name_cat);
+2950 clonedCategories.querySelector("img").setAttribute("src", value.icon_img+"?v2.0");
+2951 clonedCategories.querySelector("p.icon-text").innerHTML = value.name_cat;
+2952 clonedCategories.classList.remove("d-none");
+2953 boxCateDetails.classList.remove('d-none');
+2954 boxCateDetail.appendChild(clonedCategories);
+2955 });
+2956 resolve();
+2957 }else{
+2958 document.querySelector('#boxCateDetail').style = 'justify-content:center';
+2959 document.querySelector('#boxCateDetail').innerHTML = "<div class='text-center'><img class='nodata-icon'
+src='"+imageNotdata+"'></div>";
+2960 resolve();
+2961 }
+2962 }else if(type === "best_categories"){
+2963 if(data.data.categories.length > 0){
+2964 data.data.categories.forEach((value, index) => {
+2965 let url = "https://รอระบบ domain เสร็จ.com/user/product/search?" + new URLSearchParams({category:value.name_cat});
+2966 let clonedBestCategories = document.querySelector('.cate-hit-row .cate-hit').children[0].cloneNode(true);
+2967 clonedBestCategories.querySelector("a").setAttribute("href", url);
+2968 clonedBestCategories.querySelector(".img-category").setAttribute("alt", value.name_cat);
+2969 clonedBestCategories.querySelector('.img-category').setAttribute("src", value.icon_img+"?v2.0");
+2970 clonedBestCategories.querySelector('.cate-name').innerHTML = value.name_cat;
+2971 document.querySelector('.cate-hit-row .cate-hit').appendChild(clonedBestCategories);
+2972 clonedBestCategories.classList.remove('d-none');
+2973 document.querySelector('.show-category-best').classList.remove('d-none');
+2974 });
+2975 resolve();
+2976 }else{
+2977 document.querySelector('.show-category-best').style = 'justify-content:center';
+2978 document.querySelector('.show-category-best').innerHTML = "<div class='text-center'><img class='nodata-icon'
+src='"+imageNotdata+"'></div>";
+2979 resolve();
+2980 }
+2981 }
+2982 spinnerLoading(arrayLandningPage['categories'][type]['spinner'],"close");
+2983 }else{
+2984 spinnerLoading(arrayLandningPage['categories'][type]['spinner'],"close");
+2985 document.querySelector('#'+arrayLandningPage['categories'][type]['name']).remove();
+2986 resolve();
+2987 }
+2988 }else{
+2989 if(type === "categories"){
+2990 document.querySelector('#boxCateDetail').style = 'justify-content:center';
+2991 document.querySelector('#boxCateDetail').innerHTML = "<div class='text-center'><img class='nodata-icon'
+src='"+imageNotdata+"'></div>";
+2992 boxCateDetails.classList.remove('d-none');
+2993 resolve();
+2994 }else if(type === "best_categories"){
+2995 document.querySelector('.hide-category .show-category-best').style = 'justify-content:center';
+2996 document.querySelector('.hide-category .show-category-best').innerHTML = "<div class='text-center'><img
+class='nodata-icon' src='"+imageNotdata+"'></div>";
+2997 document.querySelector('.hide-category .show-category-best').classList.remove('d-none');
+2998 resolve();
+2999 }
+3000 spinnerLoading(arrayLandningPage['categories'][type]['spinner'],"close");
+3001 }
+3002
+3003 })
+3004 });
+3005 }
+3006
+3007 shops = async ()=>{
+3008 return new Promise(resolve => {
+3009 spinnerLoading("show-spinner-shop","open");
+3010 fetch("https://รอระบบ domain เสร็จ.com/user/landingPage?"+ new URLSearchParams({type: 'shop',path: 'shop',}) ,)
+3011 .then(response => {
+3012 if (!response.ok) {
+3013 throw new Error('HTTP error! Status: '+response.status+'');
+3014 }
+3015 return response.json();
+3016 })
+3017 .then(data => {
+3018 if(data['status']){
+3019 if(data.data.checkStatus === "on"){
+3020 if(data.data.shop.length > 0){
+3021 data.data.shop.forEach((value, index) => {
+3022 let clonedShop = boxShowShop.children[0].cloneNode(true);
+3023 let data = {'seller_member_code':value.member_code,'name':value.seller_name,'affiliate':""}
+3024 let urlShop = "https://รอระบบ domain เสร็จ.com/user/shop?"+ new URLSearchParams(data);
+3025 clonedShop.querySelector(".a-shop-view").setAttribute("href",urlShop);
+3026 clonedShop.querySelector('.img-back').setAttribute('style', 'background-image: url('+value.profile_img+')');
+3027 clonedShop.querySelector('.shop-name').innerHTML = (value.seller_name != null)?value.seller_name:"
+ไม่ระบุ";
+3028 clonedShop.querySelector('.shop-detail').innerHTML = (value.detail != null)?value.detail:"-";
+3029 clonedShop.classList.remove("d-none");
+3030 boxShowShop.appendChild(clonedShop);
+3031 });
+3032 boxShowShop.querySelector(".d-none").remove();
+3033 resolve();
+3034 }else{
+3035 document.querySelector('#boxShowShop').style = 'justify-content:center';
+3036 document.querySelector('#boxShowShop').innerHTML =
+"ไม่มีข้อมูล";
+3037 resolve();
+3038 }
+3039 spinnerLoading("show-spinner-shop","close");
+3040 }else{
+3041 spinnerLoading("show-spinner-shop","close");
+3042 document.querySelector('.hide-show-box').remove();
+3043 resolve();
+3044 }
+3045 resolve();
+3046 }else{
+3047 spinnerLoading("show-spinner-shop","close");
+3048 boxShowShop.style = 'justify-content:center';
+3049 boxShowShop.innerHTML = "<div class='text-center'><img class='nodata-icon' src='"+imageNotdata+"'></div>";
+3050 boxShowShop.classList.add('text-center');
+3051 resolve();
+3052 }
+3053 })
+3054 arrayLandningPage['status']['statusShops'] = true;
+3055 });
+3056 };
+3057
+3058 document.addEventListener("DOMContentLoaded", async (event) => {
+3059 if (window.innerWidth < 768) {
+3060 let language = "th"
+3061 if(language === "mm"){
+3062 document.querySelectorAll('.view-all-link').forEach(link => {
+3063 link.innerHTML = '<i class="fas fa-angle-right"></i>';
+3064 });
+3065 }
+3066 }
+3067
+3068 await banners('banner_paralax');
+3069 await categories('categories');
+3070 await products('flash_sale');
+3071 await products('hot');
+3072 await products('super_sale');
+3073 await products('best_seller');
+3074 await shops();
+3075 await categories('best_categories');
+3076 await affiliate();
+3077 await products('new');
+3078 await products('normal');
+3079
+3080 let errorMsg = document.querySelector('#errorMsg');
+3081 "แจ้งเตือน", if(errorMsg){ Swal.fire({title: icon: "error",title: errorMsg.value});}
+3082 });
+3083
+3084 </script>
+3085
+3086
+3087 </body></html>
